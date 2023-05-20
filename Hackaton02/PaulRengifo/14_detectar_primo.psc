@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso detectar_primo
 	numero1 = 1
 	contador = 0

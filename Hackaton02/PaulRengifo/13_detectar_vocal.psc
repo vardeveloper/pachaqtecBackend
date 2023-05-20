@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso detectar_vocal
 	letra = ""
 	Imprimir "Ingrese una letra: "

@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso tienda_helados
 	tipo_membresia = ""
 	descuento = 0

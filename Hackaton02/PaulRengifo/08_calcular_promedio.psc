@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso calcular_promedio
 	nota1 = 0
 	nota2 = 0

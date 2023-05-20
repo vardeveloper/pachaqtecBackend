@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso comprobar_negativo
 	numero1 = 0
 	Imprimir "Ingrese un numero:"

@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso tienda_zapatos
 	numero_zapatos = 0
 	precio_unitario_zapato = 80

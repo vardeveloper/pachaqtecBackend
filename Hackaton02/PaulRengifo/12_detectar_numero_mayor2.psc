@@ -1,3 +1,4 @@
+//Grupo5 - Paul Rengifo
 Proceso detectar_numero_mayor2
 	numero1 = 0
 	numero2 = 0
