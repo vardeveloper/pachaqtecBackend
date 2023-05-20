@@ -1,4 +1,3 @@
-//Grupo5 - Paul Rengifo
 Proceso comprar_ultimo_numero
 	numero1 = 0
 	modulo = 0

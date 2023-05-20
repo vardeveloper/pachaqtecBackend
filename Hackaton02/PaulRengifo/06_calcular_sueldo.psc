@@ -1,4 +1,3 @@
-//Grupo5 - Paul Rengifo
 Proceso calcular_sueldo
 	horas_trabajadas = 0
 	pago_hora = 20

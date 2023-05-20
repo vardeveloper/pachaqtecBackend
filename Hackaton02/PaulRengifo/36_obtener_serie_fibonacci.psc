@@ -1,4 +1,3 @@
-// Grupo 5 - Paul Rengifo
 Funcion numero_fibonacci <- fibonacci (indice Por Valor)
 	Si indice == 0 Entonces
 		numero_fibonacci <- 0
@@ -9,10 +8,6 @@ Funcion numero_fibonacci <- fibonacci (indice Por Valor)
 			numero_fibonacci <- fibonacci(indice - 1) + fibonacci(indice - 2)
 		FinSi
 	FinSi
-	
-
-
-	
 	
 FinFuncion
 

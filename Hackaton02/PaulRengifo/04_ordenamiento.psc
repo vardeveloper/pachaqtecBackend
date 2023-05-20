@@ -1,4 +1,3 @@
-//Grupo5 - Paul Rengifo
 Proceso ordenamiento
 	numero1 = 0 //1
 	numero2 = 0 //3

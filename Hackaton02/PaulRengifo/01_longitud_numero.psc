@@ -1,4 +1,3 @@
-//Grupo5 - Paul Rengifo
 Proceso longitud_numero
 	numero1 = 0
 	division = 0

@@ -1,4 +1,3 @@
-//Grupo5 - Paul Rengifo
 Proceso detectar_par
 	numero1 = 0
 	Imprimir "Ingrese un numero: "

@@ -1,4 +1,3 @@
-// Grupo 5 - Paul Rengifo
 Funcion obtener_numero_pi (numero_iteraciones Por Valor)
 	numero_pi = 0
 	Para  i<-0 Hasta numero_iteraciones Con Paso 1 Hacer
