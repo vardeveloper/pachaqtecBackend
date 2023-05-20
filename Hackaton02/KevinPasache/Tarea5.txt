@@ -1,0 +1,36 @@
+Proceso Tienda
+	
+	Unidad = 0
+	Descuento = 0
+	Precio = 80
+	
+	Escribir " Cuantos zapatos llevas? "
+	Leer unidad
+	
+	Si Unidad < 10 Entonces
+		Descuento = 0
+		Escribir " El total a pagar es " Unidad * Precio
+	FinSi
+	Si Unidad > 10 y Unidad < 20 Entonces
+		Compra = unidad * Precio
+		Descuento = unidad * Precio *.10
+		Escribir " El total a pagar es $" Compra
+		Escribir " El total de descuento es de $" Descuento
+		Escribir " El total a pagar con descuento aplicado es de $" Compra - Descuento
+	FinSi
+	Si unidad > 20 y unidad < 30 Entonces
+		Compra = unidad * Precio
+		Descuento = unidad * Precio *.20
+		Escribir " El total a pagar es $" Compra
+		Escribir " El total de descuento es de $" Descuento
+		Escribir " El total a pagar con descuento aplicado es de $" Compra - Descuento
+	FinSi
+	Si unidad > 30 Entonces
+		Compra = unidad * Precio
+		Descuento = unidad * Precio *.40
+		Escribir " El total a pagar es $" Compra
+		Escribir " El total de descuento es de $" Descuento
+		Escribir " El total a pagar con descuento aplicado es de $" Compra - Descuento
+	FinSi
+	
+FinProceso

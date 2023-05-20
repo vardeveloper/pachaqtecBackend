@@ -1,0 +1,22 @@
+Proceso Sueldo
+	
+	Horas = 0
+	Hora = 20
+	Extras = 25
+	
+	Escribir " Cuantas horas trabajaste? "
+	Leer Horas
+	
+	Si Horas <= 40 Entonces
+		Total = Horas * Hora
+		Escribir " Tu pago esta semana es de $" Total
+	FinSi
+	Si Horas > 40 Entonces
+		Horas_extras = Horas - 40
+		Hora_normales = Horas * Hora
+		Total_extras = Horas_extras * 25
+		Total = Total_extras + Hora_normales
+		Escribir " Tu pago esta semana es de $" Total
+	FinSi
+	
+	FinProceso

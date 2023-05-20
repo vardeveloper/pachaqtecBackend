@@ -1,0 +1,15 @@
+Proceso Mayor_entredos
+	
+	numero1 = Entero
+	numero2 = Entero
+	
+	Escribir " Ingrese dos números"
+	Leer numero1,numero2
+	
+	Si numero1 > numero2 Entonces
+		Escribir "El número mayor es " numero1
+	SiNo
+		Escribir "El número mayor es " numero2
+	FinSi
+	
+FinProceso

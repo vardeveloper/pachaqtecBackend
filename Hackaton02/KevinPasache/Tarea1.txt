@@ -1,0 +1,13 @@
+Algoritmo Tarea1
+	
+	Definir numero Como Entero
+	Escribir "Ingresa un número"
+	Leer numero
+		si numero > 99 y numero < 1000 Entonces
+			Escribir  "El número " numero " tiene 3 dígitos"
+	SiNo
+		Escribir "El número " numero " no tiene 3 dígitos"
+		FinSi
+		
+		FinSi
+FinAlgoritmo

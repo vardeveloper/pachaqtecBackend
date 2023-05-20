@@ -1,0 +1,26 @@
+Proceso Vocal
+	
+	Letra = Texto
+	
+	Escribir "Ingreso el carácter"
+	Leer Letra
+	
+	Si Letra = "a" Entonces
+		Escribir "El carácter " Letra " es una vocal"
+	FinSi
+	Si Letra = "e" Entonces
+			Escribir "El carácter " Letra " es una vocal"
+	FinSi
+	Si Letra = "i" Entonces
+		Escribir "El carácter " Letra " es una vocal"
+	FinSi
+	Si Letra = "o" Entonces
+		Escribir "El carácter " Letra " es una vocal"
+	FinSi
+	Si Letra = "u" Entonces
+		Escribir "El carácter " Letra " es una vocal"
+		
+	SiNo
+		Escribir "El carácter " Letra " no es una vocal"
+	FinSi
+FinProceso
