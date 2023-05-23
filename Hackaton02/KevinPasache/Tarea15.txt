@@ -1,0 +1,16 @@
+Proceso Conversion_de_medidas
+	
+	Definir centimetros, pulgadas, libras, kilogramos Como Real
+	
+	Escribir "Ingrese la cantidad en centimetros"
+	Leer centimetros
+	
+	Escribir "Ingrese la cantidad en libras"
+	Leer libras
+	
+	pulgadas = centimetros / 2.54
+	kilogramos = libras * 0.453592
+	
+	Escribir "Equivalente a pulgadas: ", pulgadas
+	Escribir "Equivalente a kilogramos: ",kilogramos
+FinProceso
