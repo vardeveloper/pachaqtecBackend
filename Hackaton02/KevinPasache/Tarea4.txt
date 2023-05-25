@@ -1,0 +1,44 @@
+Proceso Mayormenor
+	
+	Definir a,b,c Como Entero
+	Escribir "Ingrese el primer número"
+	Leer a
+	Escribir "Ingrese el segundo número"
+	Leer b
+	Escribir "Ingrese el tercer número"
+	Leer c
+	
+	Si a > b y a > c Entonces
+		Escribir , a
+		si b > c Entonces
+			Escribir , b
+			Escribir , c
+		SiNo
+			Escribir , c
+			Escribir , b
+		FinSi
+	FinSi
+	
+	Si b > a y b > c Entonces
+		Escribir , b
+		si a > c Entonces
+			Escribir , a
+			Escribir , c
+		SiNo
+			Escribir , c
+			Escribir , a
+		FinSi
+	FinSi
+	
+	Si c > a y c > b Entonces
+		Escribir , c
+		si a > b Entonces
+			Escribir , a
+			Escribir , b
+		SiNo
+			Escribir , b
+			Escribir , a
+		FinSi
+	FinSi
+	
+FinProceso

@@ -1,0 +1,34 @@
+Proceso Helado
+	
+	Precio = 0
+	Resultado = 0
+	Mensaje = ""
+	Tipo = Entero
+	Descuento = 0
+	
+	Escribir " Ingrese el total de compra"
+	Leer Precio
+	
+	Escribir " Que tipo de membresía es usted?"
+	Escribir " 1 = Tipo A"
+	Escribir " 2 = Tipo B"
+	Escribir " 3 = Tipo C"
+	Leer Tipo
+	
+	Si Tipo = 1 Entonces
+		Descuento = Precio *.10
+	SiNo
+		si Tipo = 2 Entonces
+			Descuento = Precio *.15
+		SiNo
+			si Tipo = 3 Entonces
+				Descuento = Precio *.20
+			SiNo
+				Descuento = 0
+			FinSi
+		FinSi
+	FinSi
+	
+	Escribir " El total a pagar es $" Precio - Descuento
+	Escribir " El descuento aplicado es de $" Descuento
+FinProceso

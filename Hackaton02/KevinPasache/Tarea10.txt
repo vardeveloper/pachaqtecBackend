@@ -1,0 +1,13 @@
+Proceso Par_Impar
+	
+	Numero = Entero
+	
+	Escribir "Ingrese el número"
+	Leer Numero
+	
+	Si Numero % 2 = 0 Entonces
+		Escribir "El " Numero " es un número par"
+	SiNo
+		Escribir "El " Numero " es un número impar"
+	FinSi
+FinProceso
