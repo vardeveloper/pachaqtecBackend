@@ -1,0 +1,40 @@
+Proceso Dia_de_la_semana
+	
+	Definir dia Como Caracter
+	Definir n Como Entero
+	
+	Escribir "Ingresa un numero "
+	Leer n
+	
+	Si n >= 1 y n <= 7 Entonces
+		si n = 1 Entonces
+			dia = "Lunes"
+		SiNo
+			si n = 2 Entonces
+				dia = "Martes"
+			SiNo
+				si n = 3 Entonces
+					dia = "Miercoles"
+				SiNo
+					si n = 4 Entonces
+						dia = "Jueves"
+					SiNo
+						si n = 5 Entonces
+							dia = "Viernes"
+						SiNo
+							si n = 6 Entonces
+								dia = "Sabado"
+							SiNo
+								si n = 7 Entonces
+									dia = "Domingo"
+								FinSi
+							FinSi
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinSi
+	
+	Escribir "Al numero " n " le corresponde el dia " dia
+FinProceso

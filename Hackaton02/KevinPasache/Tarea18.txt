@@ -1,0 +1,32 @@
+Proceso  Venta_cds
+	
+	Escribir "Cuantos CDs desea comprar?"
+	Leer cantidad
+	
+	pt = 0 //precio total
+	p_cliente = 0 // precio cliente
+	gv = 0 // ganacia del vendedor
+	pg = 0
+	si cantidad <= 9 Entonces
+		p = 10
+	SiNo
+		si cantidad >= 10 y cantidad <= 99 Entonces
+			p = 8
+		sino
+			si cantidad >= 100 y cantidad <= 499 Entonces
+				p = 7
+			SiNo
+				p = 6
+			FinSi
+		FinSi
+	FinSi
+	
+	pg = (cantidad * p) *8.25/100
+	pt = (cantidad * p) + ( pg * cantidad)
+	p_cliente = pt
+	gv = pg * cantidad
+	
+	Escribir "Precio para el cliente $" p_cliente
+	Escribir "Ganacia para el vendedor $" gv
+	
+FinProceso

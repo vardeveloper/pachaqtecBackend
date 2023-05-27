@@ -1,0 +1,64 @@
+Proceso  operaciones_numeros
+	Definir num1,num2,num3,num4, pares Como Entero
+	Definir mayor, resultado,cuadrado,media Como Real
+	
+	pares = 0
+	
+	Escribir "Ingrese el primer numero"
+	Leer num1
+	Escribir "Ingrese el segundo numero"
+	Leer num2
+	Escribir "Ingrese el tercer numero"
+	Leer num3
+	Escribir "Ingrese el cuarto numero"
+	Leer num4
+	
+	si num1 % 2 = 0 Entonces
+		pares = pares + 1
+	FinSi
+	
+	si num2 % 2 = 0 Entonces
+		pares = pares + 1
+	FinSi
+	
+	si num3 % 2 = 0 Entonces
+		pares = pares + 1
+	FinSi
+	
+	si num4 % 2 = 0 Entonces
+		pares = pares + 1
+	FinSi
+	
+	si num1 > num2 y num1 > num3 y num1 > num4 Entonces
+		mayor = num1
+	SiNo Si num2 > num3 y num2 > num4 Entonces
+			mayor = num2
+		SiNo Si num3 > num4 Entonces
+				mayor = num3
+			SiNo
+				mayor = num4
+			FinSi
+			
+			Si num3 % 2 = 0 Entonces
+				cuadrado = num2 * num2
+			FinSi
+			
+			Si num1 < num4 Entonces
+				media = (num1 + num2 + num3 + num4) / 4
+			FinSi
+		FinSi
+	FinSi
+	
+	si num2 > num3 Entonces
+		
+		si num3 >= 50 y num3 <= 700 Entonces
+			resultado = num1 + num2 + num3 + num4
+		FinSi
+	FinSi
+	
+	Escribir "Cantidad de numeros pares: " pares
+	Escribir "El mayor de los numeros es: " mayor
+	Escribir "Cuadrado: " cuadrado
+	Escribir "Media: " media
+	Escribir "Resultado: " resultado
+FinProceso

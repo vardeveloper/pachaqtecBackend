@@ -1,0 +1,20 @@
+Proceso Aumento
+	
+	Ingreso = 0
+	Incremento = 0
+	Mas = 0
+	
+	Escribir " Cuanto ganas?"
+	Leer Ingreso
+	
+	Si Ingreso > 2000 Entonces
+		Incremento = Ingreso *.05
+		Mas = Ingreso + Incremento
+		Escribir "Tu aumento de sueldo es de " Mas
+	SiNo
+		Incremento = Ingreso * .10
+		Mas = Ingreso + Incremento
+		Escribir "Tu aumento de sueldo es de " Mas
+	FinSi
+	
+FinProceso
