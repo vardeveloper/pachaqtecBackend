@@ -1,0 +1,15 @@
+Algoritmo  Determinar_si_el_numero_entero_es_negativo
+	Definir  Num1 Como Entero
+	Escribir "Ingrese un numero: "
+	leer Num1
+	Si Num1 > 0 Entonces
+		Escribir  "El numero:",Num1,"  Positivo"
+	SiNo
+		Si Num1 < 0 Entonces
+			Escribir  "El numero: ",Num1,"  Negativo"
+		FinSi
+		
+	FinSi
+	
+	
+FinProceso

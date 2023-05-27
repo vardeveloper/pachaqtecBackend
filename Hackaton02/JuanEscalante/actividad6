@@ -1,0 +1,18 @@
+Proceso saber_el_sueldo_del_trabajador
+	Definir t,sueldo,bono Como Entero;
+	bono <- 0
+	sueldo <- 0
+	Escribir "Horas Trabajadas"
+	Leer t
+	si (t < 40)Entonces
+		
+		sueldo <- t*20
+		Escribir "El sueldo de su semana es: ",Sueldo
+	SiNo
+		bono <- t - 40
+		Sueldo <- (t - bono)*20
+		Escribir  "El sueldo de su semana es: ",Sueldo + (bono * 25)
+		
+	FinSi
+	
+FinProceso

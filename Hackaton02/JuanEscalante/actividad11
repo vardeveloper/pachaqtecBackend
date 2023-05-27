@@ -1,0 +1,21 @@
+Proceso mostrar_el_numero_mayor_de_tres_numeros
+	Definir a,b,c Como Entero
+	Escribir " Coloca tres numeros"
+	Leer n1,n2,n3
+	
+	si n1>n2 Entonces
+		si n1>n3 Entonces
+			Escribir  "El numero ",n1,"es el mayor "
+		SiNo
+			Escribir  "EL numero ",n3,"es el mayor "
+			
+		FinSi
+	SiNo
+		Si n2 > n3 Entonces
+			Escribir  "El numero ",n2," es el mayor"
+		SiNo
+			Escribir "El numero ",n3," es el mayor"
+		FinSi
+	FinSi
+	
+FinProceso

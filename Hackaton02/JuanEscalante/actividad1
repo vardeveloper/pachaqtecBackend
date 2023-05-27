@@ -1,0 +1,14 @@
+Algoritmo Determinar_si_el_numero_entero_tiene_tres_digitos
+	Definir numero1 Como Entero
+	Escribir "Coloque un Numero Entero"
+	Leer numero1
+	si numero1 < 0
+		numero1 = numero1*(-1)
+	FinSi
+	Si  numero1 >= 100 y numero1 <= 999
+		Escribir  "El numero entero tiene tres digitos"
+	SiNo
+		Escribir "El numero entero no tiene tres digitos"
+		
+	FinSi
+FinProceso

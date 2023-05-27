@@ -1,0 +1,11 @@
+Proceso determinar_si_es_una_letra_o_una_voz
+	Definir letra Como Caracter
+	Escribir  "Dame unas palabras"
+	leer letra
+	si letra == "a" o letra == "e" o letra == "i" o letra == "o" o letra == "u" Entonces
+		Escribir  "El caracter es una vocal"
+	sino 
+		Escribir  "El caracter es una consonante"
+	FinSi
+	
+FinProceso

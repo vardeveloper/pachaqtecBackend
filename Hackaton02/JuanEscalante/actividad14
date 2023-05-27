@@ -1,0 +1,17 @@
+Proceso determinar_un_numero_primo
+	definir a,num,contador Como Entero
+	para num = 1 hasta 10 Hacer
+		a=1
+		contador = 0
+		Mientras  a <= num Hacer
+			si num mod a == 0 Entonces
+				contador = contador + 1
+			FinSi
+			a=a+1
+		FinMientras
+		si contador == 2 Entonces
+			
+		Escribir  " el numero ",num," es primo "
+		FinSi
+	FinPara
+FinProceso

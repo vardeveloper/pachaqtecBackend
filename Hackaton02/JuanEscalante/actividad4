@@ -1,0 +1,42 @@
+Proceso obtener_un_numero_entero_y_mostrar_de_menor_a_mayor
+	Definir a,b,c Como Entero
+	Escribir Sin Saltar "Número 01 : "
+    Leer N1
+    Escribir Sin Saltar "Número 02 : "
+    Leer N2
+    Escribir Sin Saltar "Número 03 : "
+    Leer N3
+    Si (N1 > N2) Y (N1 > N3) Entonces
+        c = N1
+        Si N2 > N3 Entonces
+            b = N2
+            a = N3
+        SiNo
+            b = N3
+            a = N2
+        FinSi
+    SiNo
+        Si N2 > N3 Entonces
+            c = N2
+            Si N1 > N3 Entonces
+                b = N1
+                a = N3
+            SiNo
+                b = N3
+                a = N1
+            FinSi
+        SiNo
+            c = N3
+            Si N1 > N2 Entonces
+                b = N1
+                a = N2
+            SiNo
+                b = N2
+                a = N1
+            FinSi
+        FinSi
+    FinSi
+    Escribir "Menor a mayor: ", a, ",", b, ",", c
+	
+	
+FinProceso

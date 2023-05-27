@@ -1,0 +1,33 @@
+Proceso Compras_de_cd
+	imprimir "Cuantos cd va comprar: "
+	Leer cantidad
+	t = 0
+	c = 0
+	ct = 0
+	gv = 0
+	
+	si cantidad  <= 9  Entonces
+		p = 10
+	sino
+		si cantidad >=10 y cantidad <= 99 Entonces
+			p = 8
+		SiNo
+			si cantidad >= 100 y cantidad <= 499 Entonces
+				p = 7
+			sino
+				p = 6
+			FinSi
+			
+		FinSi
+	FinSi
+	t = (cantidad *p) + ( cantidad)*8.25
+	c = t
+	ct = cantidad * p
+	gv = 8.25 + candidad
+	
+	Imprimir  " precio par el cliente ",c
+	Imprimir " consto total " ,ct
+	Imprimir " ganacia para el vendedor ",gv
+	
+FinProceso
+	

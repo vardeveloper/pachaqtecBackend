@@ -1,0 +1,11 @@
+Proceso Determinar_si_el_estudiante_aprobo
+	Definir  n1,n2,n3,promedio Como Real
+	Escribir  " Colocar tres calificaciones"
+	Leer  n1,n2,n3
+	promedio = (n1+n2+n3)/3
+	Escribir  "El promedio es ", promedio
+	
+	
+	
+FinProceso
+

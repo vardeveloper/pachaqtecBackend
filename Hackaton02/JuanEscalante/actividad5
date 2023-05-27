@@ -1,0 +1,22 @@
+Proceso sin_titulo
+	Escribir "Cantidad de Zapatos"
+	Leer z
+	Si z >= 30
+		Escribir "Cantidad a pagar sin Descuento: " z*80
+		Escribir "Descuento de 40%: " (z*80)*0.4
+		Escribir "Valor a cancelar: " (z-80)-((x*80)-0.4)
+	FinSi
+	Si z <30 y z >=20
+		Escribir "Cantidad a pagar sin Descuento: " z*80
+		Escribir "Descuento de 20%: " (z*80)*0.2
+		Escribir "Valor a cancelar: " (z*80)-((z*80)*0.2)
+	FinSi
+	Si z <20 y z >=10
+		Escribir "Cantidad a pagar sin Descuento : " z*80
+		Escribir "Descuento de 10%: " (z*80)*0.1
+		Escribir "Valor a cancelar: " (z*80)-((z*80)*0.1)
+	FinSi
+	si z<10
+		Escribir  "Valor a cancelar :" z*80
+	FinSi
+FinProceso

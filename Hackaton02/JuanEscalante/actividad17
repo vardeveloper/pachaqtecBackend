@@ -1,0 +1,9 @@
+Proceso horas_en_segundos
+	Definir s Como Real
+	Escribir  "Ingrese Minutos"
+	Leer m
+	s<-m*60
+	d<-m/1440
+	h<-m/60
+	Escribir s, "sgundos"
+FinProceso

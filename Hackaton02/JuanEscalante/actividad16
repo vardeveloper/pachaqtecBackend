@@ -1,0 +1,34 @@
+Proceso obetener_un_numero_y_saber_que_dia_de_semana_es
+	Definir dia Como Entero
+	Escribir  " Ingrese un numero del 1- 7"
+	leer dia
+	si (dia ==1) Entonces
+		Escribir "Domingo"
+	SiNo
+		Si(dia==2) Entonces
+			Escribir  " Lunes"
+		SiNo
+			si(dia==3)Entonces
+				Escribir  "Martes"
+			SiNo
+				si(dia==4)Entonces
+					Escribir  "Miercoles"
+				SiNo
+					si(dia==5)Entonces
+						Escribir "Jueves"
+					SiNo
+						si(dia==6)Entonces
+							Escribir "Viernes"
+						SiNo
+							si(dia==7)Entonces
+								Escribir  "sabado"
+							FinSi
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinSi
+	
+	
+FinProceso
