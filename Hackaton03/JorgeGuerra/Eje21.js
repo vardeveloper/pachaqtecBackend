@@ -5,6 +5,7 @@ function range(start, stop=undefined, step=1) { // funcion que crea una lista de
   const stopArray = stop === undefined ? start : stop;
   return Array.from({length: (stopArray - startArray) / step +1},(_,i) => startArray + (i * step));
 }
+
 var arrayFactorial = range(numero);
 console.log(arrayFactorial)
 console.log(`El factorial de ${numero} es: ${arrayFactorial.reduce((a, b)=> a * b, )}`)//imprimimos la multiplicacion de cada elemento de la lista
