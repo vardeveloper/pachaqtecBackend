@@ -1,0 +1,23 @@
+Proceso Solo_Mayor
+	
+	Numero1 = Entero
+	Numero2 = Entero
+	Numero3= Entero
+	
+	Escribir "Ingrese 3 números"
+	Leer Numero1,Numero2,Numero3
+	
+	Si Numero1 > Numero2 Entonces
+		si Numero1 > Numero3 Entonces
+			Escribir "El número " Numero1 " es el mayor de los tres"
+		SiNo
+			Escribir "El número " Numero3 " es el mayor de los tres"
+		FinSi
+	SiNo
+		si Numero2 > Numero3 Entonces
+			Escribir "El número " Numero2 " es el mayor de los tres"
+		SiNo
+			Escribir "El número " Numero3 " es el mayor de los tres"
+		FinSi
+	FinSi
+	FinProceso
