@@ -11,5 +11,5 @@ for(let i=1; i<= numero;i++){
         lPrimos.push(i)
     }
 }
-alert(lPrimos)
-alert(`La suma de los numeros impares hasta ${numero} es: ${lPrimos.reduce((a,b)=>a+b,0)}`)
+console.log(`La suma de los numeros impares hasta ${numero} es: ${lPrimos.reduce((a,b)=>a+b,0)}`)
+
