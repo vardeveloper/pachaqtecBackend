@@ -1,0 +1,20 @@
+Proceso determinar_el_descuento_por_el_tipo_de_helado
+	definir precio,descuento Como Real
+	definir tipo Como Caracter
+	escribir "¿Cuanto es el precio del Helado?"
+	leer precio
+	escribir "¿De que tipo es el Helado?,(a,b,c)"
+	leer tipo
+	Segun tipo Hacer
+		"a":
+			descuento = (precio * 10)/100
+			precio = precio - descuento
+		"b":
+			descuento = (precio * 15)/100
+			precio = precio - descuento
+		"c":
+			descuento = (precio * 20)/100
+			precio = precio - descuento
+	Fin Segun
+	escribir "el precio es ",precio," pesos"
+FinProceso

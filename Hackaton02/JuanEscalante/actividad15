@@ -1,0 +1,7 @@
+Proceso centimetros_a_pulgadas
+	Definir pulgada, centimetro como real
+	Escribir "Escribre los centimetros"
+	Leer centimetro
+	pulgada = centimetro / 2.54
+	Escribir centimetro,"centimeros convertidos a pulgadas es : ",pulgada
+FinProceso

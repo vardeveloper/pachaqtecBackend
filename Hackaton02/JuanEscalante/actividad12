@@ -1,0 +1,16 @@
+Proceso determinar_el_mayor_de_dos_numeros
+	Definir n1,n2 Como Entero
+	Escribir  "Ingresa dos Numeros"
+	Leer  n1,n2
+	Si n1 == b Entonces
+		Escribir "Son similares"
+	SiNo
+		si n1 > n2 Entonces
+			Escribir  "el numero ",n1," es mayor "
+		SiNo
+			Escribir  "el numero ",n2," Es mayor "
+			
+		FinSi
+	FinSi
+	
+FinProceso

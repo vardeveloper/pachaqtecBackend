@@ -1,0 +1,18 @@
+Proceso determinar_el_incremento_de_salario_del_trabajador
+	Escribir "¿Cuánto salario gana?"
+	
+	Leer sueldo
+	aumento = 0
+	Si sueldo >= 2000 Entonces
+		aumento = 5
+	Sino
+		aumento = 10
+	FinSi
+	
+	aumentoTotal = sueldo*aumento/100
+	
+	sueldoFinal = aumentoTotal+sueldo
+	
+	Escribir "El aumento del sueldo es ", aumento, "% (", aumentoTotal, "),El sueldo sube ",sueldoFinal
+
+FinProceso

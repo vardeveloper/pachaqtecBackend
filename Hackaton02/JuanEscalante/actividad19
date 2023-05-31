@@ -1,0 +1,27 @@
+Proceso corresponder_al_cliente_con_su_salario_y_numero_de_identificacion
+	definir num1,can,pago Como Entero
+	num1 = 0
+	can = 0
+	
+	Escribir "1.cajero ->56/dia"
+	Escribir "2.Servidor =>64/dia"
+	Escribir "3.Preparador de mezclas =>80/dia"
+	Escribir "4.Mantenimiento =>48/dia"
+	Mientras  num1 < 1 o num1 > 4 Hacer
+		Escribir "Ingrese numero identificador"Sin Saltar
+		Leer num1
+		
+	FinMientras
+	Mientras  can < 1 o can > 6 Hacer
+		Escribir "Ingrese la cantidad de dias que trabajo" Sin Saltar
+		leer can
+		
+	FinMientras
+	Segun num1 hacer
+		1: pago = can * 56 
+		2: pago = can * 64
+		3: pago = can * 80
+		4: pago = can * 48
+	FinSegun
+	Escribir "El pago sera de: ",pago
+FinProceso
