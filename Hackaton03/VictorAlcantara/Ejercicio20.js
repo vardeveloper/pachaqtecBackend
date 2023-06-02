@@ -9,7 +9,8 @@ Si el tercero es par, calcular el cuadrado del segundo.
 
 Si el primero es menor que el cuarto, calcular la media de los 4 números.
 
-Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. Si cumple la segunda condición, calcular la suma de los 4 números.
+Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. 
+Si cumple la segunda condición, calcular la suma de los 4 números.
 */
 
 const CANTIDAD_NUMEROS = 4
@@ -50,7 +51,8 @@ if (numeros[0] < numeros[3]) {
 }
 
 /** 
-Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. Si cumple la segunda condición, calcular la suma de los 4 números.
+Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. 
+Si cumple la segunda condición, calcular la suma de los 4 números.
 */
 if (numeros[1] > numeros[2] && numeros[2] >= 50 && numeros[2] <= 700) {
   console.log("calcular la suma de los 4 números")
