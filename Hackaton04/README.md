@@ -21,8 +21,7 @@
 19. Encontrar el número más pequeño y el número más grande en una cadena de texto.
 20. Calcular el número de días transcurridos entre dos fechas.
 
-
-# Consideraciones
+## Consideraciones
 
 - Desde la rama "dev" en el directorio "Hackaton04" crear una carpeta con su nombre "NombreApellido" sin espacios y en ello agregar los 20 ejercicios.
 - La actividad puede ser individual o grupal pero todos sin excepción deben subir su carpeta personal.

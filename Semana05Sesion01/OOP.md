@@ -1,10 +1,6 @@
-¿Qué es la programación orientada a objetos (OOP)?
+# Programación orientada a objetos (POO)
 
-* La programación orientada a objetos (POO) es un paradigma de programación que organiza el código en objetos reutilizables que encapsulan datos y comportamiento. JavaScript es compatible con los principios de la programación orientada a objetos gracias a su sintaxis de objetos y a su modelo de herencia basado en prototipos. 
-
-
-
-Programación orientada a objetos en terminos sencillos
+## Programación orientada a objetos en terminos sencillos
 
 * Imagina que tienes la tarea de describir diferentes animales. Puedes empezar enumerando sus características, como el color, el tamaño y el sonido. Por ejemplo, un perro puede describirse como "marrón, de tamaño mediano y ladra", mientras que un gato puede describirse como "gris, de tamaño pequeño y maúlla".
 
@@ -20,9 +16,11 @@ Programación orientada a objetos en terminos sencillos
 
 * En resumen, la programación orientada a objetos es una forma de organizar el código creando objetos que tienen propiedades y métodos. Nos permite definir clases como planos para objetos, crear relaciones entre objetos y lograr la reutilización del código. Es un enfoque poderoso para construir aplicaciones complejas y hacer que el código sea más manejable y estructurado.
 
+## ¿Qué es la programación orientada a objetos (OOP)?
 
+* La programación orientada a objetos (POO) es un paradigma de programación que organiza el código en objetos reutilizables que encapsulan datos y comportamiento. JavaScript es compatible con los principios de la programación orientada a objetos gracias a su sintaxis de objetos y a su modelo de herencia basado en prototipos. 
 
-¿Qué significa Clase, Propiedades y Métodos, Herencia en la programación orientada a objetos?
+## ¿Qué significa Clase, Propiedades y Métodos, Herencia en la programación orientada a objetos?
 
 1. Clase:
    Una clase es un plano o plantilla que define la estructura y el comportamiento de los objetos. Sirve como modelo para crear instancias de objetos con propiedades y métodos predefinidos. En términos simples, una clase define de qué estará hecho un objeto y qué puede hacer. Puedes pensar en una clase como un modelo para construir objetos de un tipo específico.
@@ -39,19 +37,65 @@ Programación orientada a objetos en terminos sencillos
 
    Por ejemplo, puede tener una clase general "Vehicle" que defina propiedades y métodos comunes para todos los vehículos. A continuación, puede crear clases más específicas como "Coche" y "Motocicleta" que heredan de la clase "Vehículo". Las clases "Coche" y "Motocicleta" tendrán sus propias propiedades y métodos únicos, al tiempo que heredarán las características compartidas de la clase "Vehículo".
 
-En resumen, las clases proporcionan un modelo para crear objetos con propiedades y métodos predefinidos. Las propiedades representan los datos asociados a un objeto y los métodos definen el comportamiento o las acciones que pueden realizar los objetos. La herencia permite a las clases heredar y extender propiedades y métodos de otras clases, lo que permite la reutilización de código y la creación de relaciones jerárquicas entre clases. Estos conceptos son fundamentales para comprender e implementar los principios de programación orientada a objetos.
+    > *En resumen*, las clases proporcionan un modelo para crear objetos con propiedades y métodos predefinidos. Las propiedades representan los datos asociados a un objeto y los métodos definen el comportamiento o las acciones que pueden realizar los objetos. La herencia permite a las clases heredar y extender propiedades y métodos de otras clases, lo que permite la reutilización de código y la creación de relaciones jerárquicas entre clases. Estos conceptos son fundamentales para comprender e implementar los principios de programación orientada a objetos.
 
+## Introduction to Object-Oriented Programming
 
+* Definición:
 
-¿Qué significan setters y gettings en javascript?
+  * La programación orientada a objetos es un paradigma de programación que se centra en organizar el código en objetos reutilizables, cada uno con sus propias propiedades y comportamientos.
+
+  * Proporciona una forma de estructurar y diseñar software modelando entidades del mundo real como objetos.
+
+* Conceptos clave de OOP:
+
+  * Objetos:
+
+    * Los objetos son los bloques de construcción fundamentales en OOP.
+    * Representan instancias específicas de una clase y tienen sus propias características únicas.
+
+  * Clases:
+
+    * Las clases son como planos o plantillas para crear objetos.
+    * Definen la estructura y el comportamiento que deben tener los objetos de cierto tipo.
+
+* Encapsulación:
+
+  * La encapsulación es la práctica de agrupar datos (propiedades) y funciones (métodos) dentro de un objeto.
+  * Oculta el funcionamiento interno de un objeto y expone solo la información necesaria.
+
+* Herencia:
+
+  * La herencia permite a los objetos heredar propiedades y métodos de clases primarias.
+  * Permite la reutilización de código y promueve relaciones jerárquicas entre clases.
+  * Las clases infantiles pueden agregar sus propias características únicas o anular las heredadas.
+
+* Polimorfismo:
+
+  * El polimorfismo significa que los objetos de diferentes clases pueden ser tratados como objetos de una clase padre común.
+  * Permite flexibilidad en cómo se utilizan los objetos y permite que el mismo método se comporte de manera diferente en diferentes objetos.
+
+* Beneficios de la POO:
+
+  * Modularidad: El código está organizado en objetos autónomos, lo que facilita su comprensión, mantenimiento y reutilización.
+  * Reutilización del código: Los objetos y clases se pueden reutilizar en diferentes partes del programa o en proyectos futuros.
+  * Encapsulación: Los datos están protegidos y se accede a ellos a través de interfaces bien definidas, lo que garantiza una mejor seguridad de los datos.
+  * Flexibilidad y escalabilidad: OOP permite una fácil modificación, extensión y expansión del código.
+
+* Conclusión:
+
+    La programación orientada a objetos proporciona una forma estructurada y eficiente de diseñar y construir sistemas de software.
+    Al organizar el código en objetos y clases, OOP promueve la reutilización del código, la modularidad y la escalabilidad.
+    Es ampliamente utilizado en varios lenguajes de programación y forma la base de muchas aplicaciones modernas.
+
+## ¿Qué significan setters y gettings en javascript?
 
 * En JavaScript, los setters y getters son métodos especiales que permiten definir cómo se accede a las propiedades de un objeto y se les asignan valores. Proporcionan una forma de controlar las operaciones de lectura y escritura en las propiedades de los objetos, lo que permite añadir validación, realizar acciones adicionales o proporcionar valores calculados al interactuar con las propiedades.
 
-- Setters:
-Un método setter se utiliza para asignar un valor a una propiedad. Se define utilizando la palabra clave "set" seguida del nombre de la propiedad. Cuando se asigna un valor a esa propiedad, se llama automáticamente al método setter, lo que permite realizar las acciones o validaciones necesarias.
+  * Setters:
+  Un método setter se utiliza para asignar un valor a una propiedad. Se define utilizando la palabra clave `set` seguida del nombre de la propiedad. Cuando se asigna un valor a esa propiedad, se llama automáticamente al método setter, lo que permite realizar las acciones o validaciones necesarias.
 
-- Getters:
-Un método getter se utiliza para recuperar el valor de una propiedad. Se define utilizando la palabra clave `get` seguida del nombre de la propiedad. Cuando se accede a la propiedad, se llama automáticamente al método getter, lo que permite devolver un valor calculado o realizar cualquier acción adicional antes de devolver el valor.
+  * Getters:
+  Un método getter se utiliza para recuperar el valor de una propiedad. Se define utilizando la palabra clave `get` seguida del nombre de la propiedad. Cuando se accede a la propiedad, se llama automáticamente al método getter, lo que permite devolver un valor calculado o realizar cualquier acción adicional antes de devolver el valor.
 
 * Los setters y getters permiten controlar el acceso y la asignación de las propiedades de los objetos. Al utilizarlos, puedes asegurarte de que se accede a las propiedades o se modifican de forma controlada, realizar validaciones, implementar propiedades computadas o desencadenar acciones adicionales al interactuar con las propiedades.
-
