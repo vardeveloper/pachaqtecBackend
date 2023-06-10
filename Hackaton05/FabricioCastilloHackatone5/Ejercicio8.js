@@ -45,10 +45,10 @@ class Factura {
     }
   }
   
-  var factura = new Factura("Fabricio Castillo", "Calle Principal 256");
+  let factura = new Factura("Fabricio Castillo", "Calle Principal 256");
   
-  var producto1 = new Producto("Zapatillas Converse", 85);
-  var producto2 = new Producto("Kit de fitness", 150);
+  let producto1 = new Producto("Zapatillas Converse", 85);
+  let producto2 = new Producto("Kit de fitness", 150);
   
   factura.agregarProducto(producto1, 2);
   factura.agregarProducto(producto2, 1);
