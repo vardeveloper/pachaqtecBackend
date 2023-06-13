@@ -58,6 +58,9 @@ class Pedido{
         return `Tu pedido realizado el día ${this.fecha} llegara en ${this.newFecha} días.\nIncluye: \n\t${this.productos}\nEl importe total es: s/. ${this.total}\nPara la direccion: ${this.direccion}\nMetodo de pago es: ${this.metodoPago}\nSu codigo de pedido para el rastreo es\n${this.codigoDePedido}`
     }
 }
+module.exports = Pedido
+
+/*
 const producto1 = new Producto("Respuesto para moto",150,"Repuesto para soporte trasero de moto", 10)
 const producto2 = new Producto("Repuesto para carro",300,"Repuesto de espejo",8)
 
@@ -71,5 +74,5 @@ pedido.envioPremiun()
 console.log(pedido.confirmarPedido())
 //console.log(carrito)
 console.log(pedido)
-
+*/
 

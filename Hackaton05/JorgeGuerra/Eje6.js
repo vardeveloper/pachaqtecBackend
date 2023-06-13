@@ -29,10 +29,12 @@ class Tienda{
     }
 
 }
+module.exports = Tienda
+/*
 const nuevaTienda = new Tienda("Mi tiendita.com","av. higuereta 123")
 nuevaTienda.agregarProd("celular Samsung",1990,18)
 nuevaTienda.agregarProd("celular Iphone",3000,15)
 nuevaTienda.agregarProd("celular Xiomy",1300,20)
 nuevaTienda.agregarProd("celular Motorola",1500,17)
 console.log(nuevaTienda)
-console.log(nuevaTienda.BuscarProd("celular samsung"))
+console.log(nuevaTienda.BuscarProd("celular samsung"))*/
