@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de DOM</title>
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"-->
+</head>
+
+<body>
+    <div class="container">
+        <header class="border-bottom lh-1 py-3">
+            <nav>
+                <ul>
+                    <li class="item"><a href="#">Inicio</a></li>
+                    <li class="item"><a href="#">Acerca de</a></li>
+                    <li class="item"><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main class="container">
+
+        <div id="myDiv">
+            <p>Contenido existente</p>
+        </div>
+
+        <section>
+            <h2>Sección 1</h2>
+            <p>Contenido de la sección 1</p>
+        </section>
+
+        <section>
+            <h2>Sección 2</h2>
+            <p>Contenido de la sección 2</p>
+        </section>
+
+        <!--
+        <div>
+            <button type="button" class="btn btn-primary" id="miBoton">Haz clic</button>
+        </div>
+
+        <div>
+            <input type="text" id="myInput">
+        </div>
+    
+        <div>
+            <form id="myForm">
+                <input type="text" class="btn-primary" name="nombre" placeholder="Nombre">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        -->
+
+        <div>
+            <ul id="myList">
+                <li>Elemento 1</li>
+                <!--Voy agregar un elemento en la 2da fila-->
+                <li>Elemento 3</li> <!--elemento de referencia-->
+                <li>Elemento 4</li>
+            </ul>
+        </div>
+
+
+    </main>
+    <footer class="text-body-secondary py-5">
+        <p>Primer párrafo</p>
+        <p>Segundo párrafo</p>
+        <p>Tercer párrafo</p>
+    </footer>
+</body>
+
+<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+<!--script src="./main.js"></script-->
+
+<script>
+
+    /**
+     ******************************************************************************
+     * Agregar un elemento antes de otro elemento (insertBefore):
+     ******************************************************************************
+     */
+
+    const myList2 = document.getElementById('myList'); // <ul>
+
+    // creo mi nuevo elemento "<li>"que quiero añadir
+    const newElement2 = document.createElement('li');
+    newElement2.textContent = 'Elemento 2';
+
+    // elemento de referencia "<li>Elemento 3</li>"
+    const referenceElement = myList2.querySelector('li:nth-child(2)');
+    console.log(referenceElement)
+
+    // insertando un elemento antes de que el elemento que se envia como referencia
+    myList2.insertBefore(newElement2, referenceElement);
+
+</script>
+
+</html>
+
+<!--
+En este ejemplo, la estructura del árbol del DOM se organiza de la siguiente manera:
+
+El nodo raíz es el elemento <html>.
+    El nodo <html> tiene dos nodos hijos: <head> y <body>.
+        El nodo <head> tiene un nodo hijo: <title>.
+        El nodo <body> tiene varios nodos hijos: <header>, <main>, y <footer>.
+            El nodo <header> tiene dos nodos hijos: <h1> y <nav>.
+                El nodo <h1> es un hijo directo del nodo <header>.
+                El nodo <nav> tiene un nodo hijo: <ul>.
+                    El nodo <ul> tiene tres nodos hijos: <li>, <li>, y <li>.
+                        Cada nodo <li> tiene un nodo hijo: <a>.
+            El nodo <main> tiene dos nodos hijos: dos nodos <section>.
+                Cada nodo <section> tiene dos nodos hijos: <h2> y <p>.
+            El nodo <footer> tiene un nodo hijo: <p>.
+
+Esta estructura de árbol del DOM permite acceder y manipular cada nodo y sus 
+propiedades utilizando JavaScript u otros lenguajes de programación. 
+Por ejemplo, se puede acceder al contenido del elemento <h1> o agregar 
+dinámicamente nuevos elementos dentro de la sección <main>.
+-->
