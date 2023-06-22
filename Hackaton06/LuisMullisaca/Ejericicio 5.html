@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario</title>
+</head>
+<body>
+  <form>
+    <input type="text" id="campoEntrada">
+    <button type="button" onclick="mostrarValor()">Mostrar Valor</button>
+  </form>
+
+  <script>
+    function mostrarValor() {
+      var campo = document.getElementById("campoEntrada");
+      var valor = campo.value;
+      console.log("Valor del campo de entrada: " + valor);
+    }
+  </script>
+</body>
+</html>

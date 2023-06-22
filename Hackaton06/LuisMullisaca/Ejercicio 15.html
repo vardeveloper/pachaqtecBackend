@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <script>
+    function calculate() {
+      var input = document.getElementById("result");
+      var expression = input.value;
+
+      try {
+        var result = eval(expression);
+        input.value = result;
+      } catch (error) {
+        input.value = "Error";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <button onclick="document.getElementById('result').value += '7'">7</button>
+    <button onclick="document.getElementById('result').value += '8'">8</button>
+    <
