@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista desplegable con valor seleccionado en la consola</title>
+</head>
+<body>
+  <select id="miLista" onchange="mostrarSeleccion()">
+    <option value="opcion1">Opción 1</option>
+    <option value="opcion2">Opción 2</option>
+    <option value="opcion3">Opción 3</option>
+  </select>
+
+  <script>
+    function mostrarSeleccion() {
+      var lista = document.getElementById("miLista");
+      var opcionSeleccionada = lista.options[lista.selectedIndex].value;
+      console.log("Valor seleccionado: " + opcionSeleccionada);
+    }
+  </script>
+</body>
+</html>
+

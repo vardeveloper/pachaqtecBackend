@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function handleChange(checkbox) {
+      if (checkbox.checked) {
+        console.log("La casilla de verificación se ha marcado");
+      } else {
+        console.log("La casilla de verificación se ha desmarcado");
+      }
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="myCheckbox" onchange="handleChange(this)">
+  <label for="myCheckbox">Casilla de verificación</label>
+</body>
+</html>

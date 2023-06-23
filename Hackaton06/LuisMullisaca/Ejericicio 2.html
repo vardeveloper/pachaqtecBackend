@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cambio de color al pasar el cursor</title>
+  <style>
+    .cambiarColor {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  <script>
+    function cambiarColorFondo() {
+      this.style.backgroundColor = "blue";
+    }
+
+    function restaurarColorFondo() {
+      this.style.backgroundColor = "red";
+    }
+  </script>
+</head>
+<body>
+  <div id="miElemento" class="cambiarColor" onmouseover="cambiarColorFondo()" onmouseout="restaurarColorFondo()"></div>
+</body>
+</html>
+

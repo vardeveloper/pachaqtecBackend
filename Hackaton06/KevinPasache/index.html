@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hackaton 06</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section>
+        <h1>Ejercicio1</h1>
+            <div>
+                <button
+                type="button"
+                class ="click"
+                id ="primerClick">Has click aqui
+                </button>
+            </div>
+    </section>
+    <section>
+        <h1>Ejercicio2</h1>
+            <div class="elemento" id="miElemento"></div>
+    </section>
+    <section>
+        <h1>Ejercicio3</h1>
+        <div>
+            <select class ="mySelect">
+                <option value="Opción 1">Opción 1</option>
+                <option value="Opción 2">Opción 2</option>
+                <option value="Opción 3">Opción 3</option>
+            </select>
+        </div>
+    </section>
+    <section>
+        <h1>Ejercicio5</h1>
+        <div>
+            <form>
+                <label for="campo">Campo de entrada:</label>
+                <input type="text" id="campo" name="campo">
+                <button type="button" id="boton" onclick="mostrarValor()">Mostrar en consola</button>
+              </form>
+        </div>
+    </section>
+    <section>
+        <h1>
+            <div>
+                <img  class="myPicture" src="./Imagen.png" alt="No cargo" title="Imagen">
+            </div>
+        </h1>
+    </section>
+    <section>
+        <h1>Ejercicio 9</h1>
+        <div>
+            <a href="#" class="myLink">Haz clic aquí</a>
+        </div>
+    </section>
+    <section>
+        <h1>Ejercicio 10</h1>
+        <div>
+            <input type="text" id="myInput">
+        </div>
+    </section>
+    <section>
+        <h1>Ejercicio 11</h1>
+        <div>
+            <ul>
+                <li onclick="mostrarMensaje(event)">Elemento 1</li>
+                <li onclick="mostrarMensaje(event)">Elemento 2</li>
+                <li onclick="mostrarMensaje(event)">Elemento 3</li>
+                <li onclick="mostrarMensaje(event)">Elemento 4</li>
+                <li onclick="mostrarMensaje(event)">Elemento 5</li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h1>Ejercicio 12</h1>
+        <div>
+            <input type="checkbox" id="myCheckbox">
+            <label for="myCheckbox">Casilla de verificación</label>
+        </div>
+    </section>
+    <section>
+        <button onclick="toggleElement()">Mostrar/Ocultar Elemento</button>
+        <div class="elementoOculto">
+            <h1>¡Soy un elemento oculto!</h1>
+                <p>Este es el contenido del elemento oculto.</p>
+        </div>
+    </section>
+    <section>
+        <h1>Ejercicio 14</h1>
+        <div id="dobleClick">Haz doble clic aquí</div>
+    </section>
+</body>
+<script src="./main.js"></script>
+</html>
