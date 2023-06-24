@@ -11,9 +11,7 @@ class Producto {
         return {
         precio: this.precio,
         stock: this.stock,
-
-        };
-
+         };
     }
     get obtenerPrecio() {
         return this.precio;
@@ -47,6 +45,6 @@ const libros3 = new Producto ("mil a√±os de soledad",30,"tapa dura edicion espa√
 const libros4 = new Producto ("amor y prejucicio",30,"primera edicion, reeditado",10);
 const libros5 = new Producto ("mi planta de naranja lima",10,"libro standar tapa gastada sin color",5);
 
-
+module.export = Producto
 
 
