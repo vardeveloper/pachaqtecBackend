@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function handleFocus() {
+      console.log("Campo de entrada enfocado");
+    }
+
+    function handleBlur() {
+      console.log("Campo de entrada desenfocado");
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="myInput" onfocus="handleFocus()" onblur="handleBlur()">
+</body>
+</html>
