@@ -1,0 +1,13 @@
+.drag-item {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    margin: 10px;
+  }
+
+  .drop-target {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    margin: 10px;
+  }
