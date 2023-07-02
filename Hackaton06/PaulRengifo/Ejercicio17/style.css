@@ -1,0 +1,8 @@
+.question {
+    margin-bottom: 20px;
+  }
+
+  .option {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
