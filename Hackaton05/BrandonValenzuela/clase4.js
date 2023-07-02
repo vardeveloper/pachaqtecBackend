@@ -14,7 +14,7 @@ class Pedido {
 
     }
 
-// buscar herencia entre clases pedido y carrito compra
+    
 
 
 
