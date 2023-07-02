@@ -1,0 +1,2 @@
+//Crear una clase "Promoción" que represente una oferta especial en un producto. La clase debe tener propiedades como producto asociado, descuento y fechas de inicio y fin.
+ //Incluye métodos para verificar si la promoción está activa y aplicar el descuento al producto.
