@@ -39,11 +39,11 @@
   - Velocidad de desarrollo
   - Altos niveles de privacidad de datos y seguridad
 
-### Qué es un documento?
+### ¿Qué es un documento?
 
 - Un documento es la unidad básica de datos en MongoDB.
 
-### Qué es una colección?
+### ¿Qué es una colección?
 
 - Una colección es una agrupación de esos documnentos.
 
@@ -75,15 +75,15 @@
 - [Explaining BSON with Examples!](https://www.mongodb.com/basics/bson)
 - [JSON and BSON!](https://www.mongodb.com/json-and-bson)
 
-### Operaciones CRUD en MongoDB: Insertar y Buscar Documentos
+## Operaciones CRUD en MongoDB: Insertar y Buscar Documentos
 
 - MongoDB crea automáticamente la colección si no existe
 - Cada documento debe tener un campo _id y su valor debe ser exclusivo
 - Si no proporciona un _id MongoDB automáticamente lo genera
 
-#### Lección 1: Inserción de documentos en una colección MongoDB
+### Lección 1: Inserción de documentos en una colección MongoDB
 
-##### Insertar un único documento
+#### Insertar un único documento
 
 Utilice ``insertOne()`` para insertar un documento en una colección. Dentro del paréntesis de ``insertOne()``, incluya un objeto que contenga los datos del documento.
 
@@ -112,7 +112,7 @@ db.grades.insertOne({
 })
 ```
 
-##### Insertar varios documentos
+#### Insertar varios documentos
 
 Utilice ``insertMany()`` para insertar varios documentos a la vez. Dentro de ``insertMany()``, incluya los documentos dentro de una matriz. Cada documento debe ir separado por una coma.
 
@@ -187,9 +187,9 @@ db.grades.insertMany([
 ])
 ```
 
-#### Lección 2: Búsqueda de documentos en una colección MongoDB
+### Lección 2: Búsqueda de documentos en una colección MongoDB
 
-##### Encontrar un documento con igualdad
+#### Encontrar un documento con igualdad
 
 Cuando se le da igualdad con un campo ``_id``, el comando ``find()`` devolverá el documento especificado que coincida con el ``_id``.
 
@@ -197,7 +197,7 @@ Cuando se le da igualdad con un campo ``_id``, el comando ``find()`` devolverá 
 db.zips.find({ _id: ObjectId("5c8eccc1caa187d17ca6ed16") })
 ```
 
-##### Encontrar un documento mediante el operador ``$in``
+#### Encontrar un documento mediante el operador ``$in``
 
 Utilice el operador ``$in`` para seleccionar documentos en los que el valor de un campo sea igual a cualquier valor de la matriz especificada.
 
@@ -205,11 +205,11 @@ Utilice el operador ``$in`` para seleccionar documentos en los que el valor de u
 db.zips.find({ city: { $in: ["PHOENIX", "CHICAGO"] } })
 ```
 
-#### Lección 3: Búsqueda de documentos mediante operadores de comparación
+### Lección 3: Búsqueda de documentos mediante operadores de comparación
 
 Revise los siguientes operadores de comparación: ``$gt``, ``$lt``, ``$lte`` y ``$gte``.
 
-##### $gt (greater than)
+#### $gt (greater than)
 
 Utilice el operador ``$gt`` para buscar documentos con un campo superior al valor dado. Por ejemplo:
 
@@ -217,7 +217,7 @@ Utilice el operador ``$gt`` para buscar documentos con un campo superior al valo
 db.sales.find({ "items.price": { $gt: 50}})
 ```
 
-##### $lt (less than)
+#### $lt (less than)
 
 Utilice el operador ``$lt`` para buscar documentos con un campo inferior al valor dado. Por ejemplo:
 
@@ -225,7 +225,7 @@ Utilice el operador ``$lt`` para buscar documentos con un campo inferior al valo
 db.sales.find({ "items.price": { $lt: 50}})
 ```
 
-##### $lte (less than or equal to)
+#### $lte (less than or equal to)
 
 Utilice el operador ``$lte`` para buscar documentos con un campo menor o igual que el valor dado. Por ejemplo:
 
@@ -233,7 +233,7 @@ Utilice el operador ``$lte`` para buscar documentos con un campo menor o igual q
 db.sales.find({ "customer.age": { $lte: 65}})
 ```
 
-##### $gte (greater than or equal to)
+#### $gte (greater than or equal to)
 
 Utilice el operador ``$gte`` para buscar documentos con un campo mayor o igual que el valor dado. Por ejemplo:
 
@@ -241,9 +241,9 @@ Utilice el operador ``$gte`` para buscar documentos con un campo mayor o igual q
 db.sales.find({ "customer.age": { $gte: 65}})
 ```
 
-#### Lección 4: Consultas sobre elementos de matrices en MongoDB
+### Lección 4: Consultas sobre elementos de matrices en MongoDB
 
-##### Buscar documentos con una matriz que contenga un valor especificado
+#### Buscar documentos con una matriz que contenga un valor especificado
 
 En el siguiente ejemplo, "InvestmentFund" no está entre corchetes, por lo que MongoDB devuelve todos los documentos de la matriz de ``productos`` que contienen el valor especificado.
 
@@ -251,7 +251,7 @@ En el siguiente ejemplo, "InvestmentFund" no está entre corchetes, por lo que M
 db.accounts.find({ products: "InvestmentFund"})
 ```
 
-##### Buscar un documento utilizando el operador ``$elemMatch``
+#### Buscar un documento utilizando el operador ``$elemMatch``
 
 Utilice el operador ``$elemMatch`` para buscar todos los documentos que contengan el subdocumento especificado. Por ejemplo:
 
@@ -263,7 +263,7 @@ db.sales.find({
 })
 ```
 
-#### Lección 5: Búsqueda de documentos mediante operadores lógicos
+### Lección 5: Búsqueda de documentos mediante operadores lógicos
 
 Revise los siguientes operadores lógicos: ``$and`` implícito, ``$or`` y ``$and``.
 
@@ -298,9 +298,9 @@ db.routes.find({
 })
 ```
 
-### Operaciones CRUD en MongoDB: Reemplazar y Eliminar Documentos
+## Operaciones CRUD en MongoDB: Reemplazar y Eliminar Documentos
 
-#### Lección 1: Reemplazar un documento en MongoDB
+### Lección 1: Reemplazar un documento en MongoDB
 
 Para reemplazar documentos en MongoDB, utilizamos el método ``replaceOne()``. El método ``replaceOne()`` toma los siguientes parámetros:
 
@@ -327,11 +327,11 @@ db.books.replaceOne(
 )
 ```
 
-#### Lección 2: Actualización de documentos MongoDB utilizando ``updateOne()``
+### Lección 2: Actualización de documentos MongoDB utilizando ``updateOne()``
 
 El método ``updateOne()`` acepta un documento de filtrado, un documento de actualización y un objeto de opciones opcional. MongoDB proporciona operadores de actualización y opciones para ayudarle a actualizar documentos. En esta sección, cubriremos tres de ellos: ``$set``, ``upsert`` y ``$push``.
 
-##### $set
+#### $set
 
 El operador ``$set`` sustituye el valor de un campo por el valor especificado, como se muestra en el siguiente código:
 
@@ -349,7 +349,7 @@ db.podcasts.updateOne(
 )
 ```
 
-##### upsert
+#### upsert
 
 La opción ``upsert`` crea un nuevo documento si ningún documento coincide con los criterios filtrados. He aquí un ejemplo:
 
@@ -361,7 +361,7 @@ db.podcasts.updateOne(
 )
 ```
 
-##### $push
+#### $push
 
 El operador ``$push`` añade un nuevo valor al campo del array hosts. He aquí un ejemplo:
 
@@ -372,7 +372,7 @@ db.podcasts.updateOne(
 )
 ```
 
-#### Lección 3: Actualización de documentos de MongoDB mediante ``findAndModify()``
+### Lección 3: Actualización de documentos de MongoDB mediante ``findAndModify()``
 
 El método ``findAndModify()`` se utiliza para encontrar y reemplazar un único documento en MongoDB. Acepta un documento de filtro, un documento de reemplazo y un objeto de opciones opcional. El siguiente código muestra un ejemplo:
 
@@ -384,7 +384,7 @@ db.podcasts.findAndModify({
 })
 ```
 
-#### Lección 4: Actualización de documentos MongoDB mediante ``updateMany()``
+### Lección 4: Actualización de documentos MongoDB mediante ``updateMany()``
 
 Para actualizar múltiples documentos, utilice el método ``updateMany()``. Este método acepta un documento de filtro, un documento de actualización y un objeto de opciones opcional. El siguiente código muestra un ejemplo:
 
@@ -395,11 +395,11 @@ db.books.updateMany(
 )
 ```
 
-#### Lección 5: Borrado de documentos en MongoDB
+### Lección 5: Borrado de documentos en MongoDB
 
 Para borrar documentos, utilice los métodos ``deleteOne()`` o ``deleteMany()``. Ambos métodos aceptan un documento de filtro y un objeto de opciones.
 
-##### Borrar un documento
+#### Borrar un documento
 
 El siguiente código muestra un ejemplo del método ``deleteOne()``:
 
@@ -407,7 +407,7 @@ El siguiente código muestra un ejemplo del método ``deleteOne()``:
 db.podcasts.deleteOne({ _id: Objectid("6282c9862acb966e76bbf20a") })
 ```
 
-##### Borrar muchos documentos
+#### Borrar muchos documentos
 
 El siguiente código muestra un ejemplo del método ``deleteMany()``:
 
@@ -415,13 +415,13 @@ El siguiente código muestra un ejemplo del método ``deleteMany()``:
 db.podcasts.deleteMany({category: "crime"})
 ```
 
-### Operaciones CRUD en MongoDB: Modificación de resultados de consultas
+## Operaciones CRUD en MongoDB: Modificación de resultados de consultas
 
-#### Lección 1: Ordenación y limitación de resultados de consultas en MongoDB
+### Lección 1: Ordenación y limitación de resultados de consultas en MongoDB
 
 Revise el siguiente código, que muestra cómo ordenar y limitar los resultados de una consulta.
 
-##### Ordenando resultados
+#### Ordenando resultados
 
 Utilice ``cursor.sort()`` para devolver los resultados de la consulta en un orden específico. Dentro de los paréntesis de ``sort()``, incluya un objeto que especifique el campo(s) por el que se va a ordenar y el orden de la ordenación. Utilice 1 para el orden ascendente y -1 para el descendente.
 
@@ -445,7 +445,7 @@ Para garantizar que los documentos se devuelven en un orden coherente, incluya u
 db.companies.find({ category_code: "music" }).sort({ name: 1, _id: 1 });
 ```
 
-##### Limitación de resultados
+#### Limitación de resultados
 
 Utilice ``cursor.limit()`` para devolver los resultados de la consulta en un orden especificado. Entre los paréntesis de ``limit()``, especifique el número máximo de documentos a devolver.
 
@@ -465,11 +465,11 @@ db.companies
   .limit(3);
 ```
 
-#### Lección 2: Devolución de datos específicos de una consulta en MongoDB
+### Lección 2: Devolución de datos específicos de una consulta en MongoDB
 
 Revise el siguiente código, que demuestra cómo devolver campos seleccionados desde una consulta.
 
-##### Añadir un Documento de Proyección
+#### Añadir un Documento de Proyección
 
 Para especificar los campos a incluir o excluir en el conjunto de resultados, añada un documento de proyección como segundo parámetro en la llamada a ``db.collection.find()``.
 
@@ -479,7 +479,7 @@ Sintaxis:
 db.collection.find( <query>, <projection> )
 ```
 
-##### Incluir un campo
+#### Incluir un campo
 
 Para incluir un campo, establezca su valor en 1 en el documento de proyección.
 
@@ -499,7 +499,7 @@ db.inspections.find(
 )
 ```
 
-##### Excluir un campo
+#### Excluir un campo
 
 Para excluir un campo, establezca su valor en 0 en el documento de proyección.
 
@@ -529,11 +529,11 @@ db.inspections.find(
 )
 ```
 
-#### Lección 3: Contando Documentos en una Colección MongoDB
+### Lección 3: Contando Documentos en una Colección MongoDB
 
 Revise el siguiente código, que demuestra cómo contar el número de documentos que coinciden con una consulta.
 
-##### Contar Documentos
+#### Contar Documentos
 
 Utilice ``db.collection.countDocuments()`` para contar el número de documentos que coinciden con una consulta. ``countDocuments()`` toma dos parámetros: un documento de consulta y un documento de opciones.
 
@@ -555,7 +555,7 @@ db.trips.countDocuments({})
 db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
 ```
 
-### Agregación
+## Agregación
 
 - Agregación: análisis y resumen de los datos
 
@@ -578,7 +578,7 @@ db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
 
 - Una etapa de Agregación es una operación de agregación que se realiza en lso datos y no altera permanentemente los datos de origen.
 
-### Comandos
+## Comandos
 
 ```JavaScript
 show databases
@@ -614,7 +614,7 @@ use admin
   mongorestore --host <hostname> --port <port> --username <username> --password <password> --authenticationDatabase <auth_db> --nsInclude '<database.collection>' /path/backup.bson
 ```
 
-### Resources
+## Resources
 
 - [shell!](https://docs.mongodb.com/mongodb-shell/)
 - [MongoDB Sample Data](https://erelbi.github.io/mongodb_sample_data/)
