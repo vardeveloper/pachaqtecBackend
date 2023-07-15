@@ -34,4 +34,4 @@ CREATE TABLE ventas (
   fecha_venta DATE,
   FOREIGN KEY (producto_id) REFERENCES productos(id),
   FOREIGN KEY (cliente_id) REFERENCES clientes(id)
-);
+); 
