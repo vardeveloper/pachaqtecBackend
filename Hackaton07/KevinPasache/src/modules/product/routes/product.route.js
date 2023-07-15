@@ -2,10 +2,9 @@ const { Router } = require("express");
 const ProductService = require("../services/product.service");
 
 const routes = Router();
-const productService = new ProductService();
 
-routes.get("/", productService.getListProduct);
+routes.get("/", ProductService.getListProduct);
 
-routes.post("/create",productService.crear);
+routes.post("/create",ProductService.crear);
 
 module.exports = routes;

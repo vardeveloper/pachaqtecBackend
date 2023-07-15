@@ -1,5 +1,4 @@
 const { response } = require("express");
-// const Almacen = require("../entity/almacen.entity");
 const almacen = require("../entity/almacen.entity");
 
 class AlmacenService {
