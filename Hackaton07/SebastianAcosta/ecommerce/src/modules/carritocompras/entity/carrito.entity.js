@@ -3,10 +3,32 @@ class CarritoCompras {
       this.productos = [];
     }
     agregarProductos(producto) {
-      this.productos.push(producto);
+      const existeproducto= this.productos.find((e)=>{
+        if  (e.id === producto.id){
+            return e;
+        } else {
+          return;
+        }
+      })
+      console.log(existeproducto);
+      if(existeproducto){
+        existeproducto.units = existeproducto.units + 1;
+      }
+      else {
+        producto.units = 1;
+        this.productos.push(producto);
+      }
     }
-    buscarProductos(nombre) {
-      return this.productos.filter((producto) => (producto.nombre = nombre));
+    buscarProductos(value) {
+      const existeproducto= this.productos.find((e)=>{
+        if  (e.id == value){
+            return e;
+        } else {
+          return;
+        }
+      })
+      
+        return existeproducto;
     }
     get getLista() {
       return this.productos;
