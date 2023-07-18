@@ -2,10 +2,10 @@
 // (contiene todas las letras del alfabeto)
 
 
-let palabras = "psicologia"
+let palabras = "cada vez que trabajo Félix me paga con whisky añejo"
+const alfabeto = "abcdefghijklmnñopqrstuvwxyz"
 
-const esPangrama = cadena => {
-	const alfabeto = "abcdefghijklmnñopqrstuvwxy";
-	cadena = cadena.toLowerCase();
-	return Array.from(alfabeto).every(letra => cadena.includes(letra));
-}
+let soyPangrama =  palabras.split("");
+		
+console.log(soyPangrama.every(soyPangrama.includes(alfabeto.split(""))));
+console.log(alfabeto.split(""))

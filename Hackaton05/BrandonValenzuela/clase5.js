@@ -1,0 +1,2 @@
+//Crear una clase "Comentario" que represente un comentario de un cliente en un producto. La clase debe tener propiedades como nombre del cliente, 
+//fecha del comentario y contenido del comentario. Incluye métodos para obtener y establecer estas propiedades.
