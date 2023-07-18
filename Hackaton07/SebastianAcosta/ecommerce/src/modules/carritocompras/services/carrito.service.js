@@ -11,16 +11,13 @@ class CarritoService {
   }
 
   agregarCarrito(req, res) {
-    const {nombre} = req.body;
-    console.log(nombre);
-    const newProduct = almacen.buscarProductos(nombre);
-    const { name, Precio, Modelo, Unidades } = newProduct[0];
-    const newProduct2 = new Product(name, Precio, Modelo, Unidades);
-    
-    console.log(newProduct[0]);
-    Carrito.agregarProductos(newProduct2.getInfo);
+    const {id} = req.body;
+    console.log(id);
+    const newProduct = almacen.buscarProductos(id);
+    console.log(newProduct);
+    Carrito.agregarProductos(newProduct);
 
-    res.json(newProduct2.getInfo);
+    res.json(newProduct);
   }
 }
 const carritoService = new CarritoService();

@@ -29,8 +29,8 @@ class Server {
   routes() {
     this.app.use(this.userPath, users);
     this.app.use(this.productPath, product);
-    this.app.use(this.almacenPath,almacen)
-    this.app.use(this.carritoPath,carrito)
+    this.app.use(this.almacenPath,almacen);
+    this.app.use(this.carritoPath,carrito);
   }
 
   listen() {

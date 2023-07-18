@@ -22,9 +22,9 @@ class AlmacenService {
   }
 
   buscarProducto2(req, res = response) {
-    const {name} = req.body;
-    console.log(name);
-    res.json(almacen.buscarProductos(name));
+    const {id} = req.body;
+    console.log(id);
+    res.json(almacen.buscarProductos(id));
   }
 }
 
