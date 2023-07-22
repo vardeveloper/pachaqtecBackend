@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    max-width: 200px;
+    margin: 10px auto;
+  }
+  
+  #dragElement {
+    width: 100px;
+    height: 50px;
+    background-color: orange;
+    text-align: center;
+    line-height: 50px;
+    cursor: move;
+  }
+  
+  #dropZone {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 100px;
+  }
+  
