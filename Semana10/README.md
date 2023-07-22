@@ -555,7 +555,7 @@ db.trips.countDocuments({})
 db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
 ```
 
-## Agregación
+## Aggregation (Agregación)
 
 - Agregación: análisis y resumen de los datos
 
@@ -577,6 +577,460 @@ db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
 - Los documentos que se generan de un etapa se convierten en entrada de la siguiente etapa
 
 - Una etapa de Agregación es una operación de agregación que se realiza en lso datos y no altera permanentemente los datos de origen.
+
+### Lección 1: Introducción a la agregación en MongoDB
+
+Esta sección contiene definiciones clave para esta lección, así como el código para una canalización de agregación.
+
+#### Definiciones
+
+- ``Aggregation (Agregación)``: Recopilación y resumen de datos
+
+- ``Stage (Etapa):`` Uno de los métodos incorporados que puede completarse sobre los datos, pero que no los altera permanentemente
+
+- ``Aggregation pipeline (Proceso de agregación):`` Una serie de etapas que se completan sobre los datos en orden
+
+#### Estructura de un proceso de agregación
+
+```JavaScript
+db.collection.aggregate([
+    {
+        $stage1: {
+            { expression1 },
+            { expression2 }...
+        },
+        $stage2: {
+            { expression1 }...
+        }
+    }
+])
+```
+
+### Lección 2: Uso de las etapas ``$match`` y ``$group`` en un proceso de agregación de MongoDB
+
+Revise las siguientes secciones, que muestran el código para las etapas de agregación ``$match`` y ``$group``.
+
+#### ``$match``
+
+La etapa ``$match`` filtra los documentos que coinciden con las condiciones especificadas. Este es el código de ``$match``:
+
+```JavaScript
+{
+  $match: {
+     "field_name": "value"
+  }
+}
+```
+
+#### ``$group``
+
+La etapa ``$group`` agrupa los documentos por una clave de grupo.
+
+```JavaScript
+{
+  $group:
+    {
+      _id: <expression>, // Group key
+      <field>: { <accumulator> : <expression> }
+    }
+ }
+```
+
+#### ``$match`` y ``$group`` en una canalización de agregación
+
+La siguiente tubería de agregación encuentra los documentos con un campo llamado "state" que coincide con un valor "CA" y, a continuación, agrupa esos documentos por la clave de grupo "$city" y muestra el número total de códigos postales en el estado de California.
+
+```JavaScript
+db.zips.aggregate([
+{   
+   $match: { 
+      state: "CA"
+    }
+},
+{
+   $group: {
+      _id: "$city",
+      totalZips: { $count : { } }
+   }
+}
+])
+```
+
+### Lección 3: Uso de las etapas ``$sort`` y ``$limit`` en un proceso de agregación de MongoDB
+
+Revise las siguientes secciones, que muestran el código para las etapas de agregación ``$sort`` y ``$limit``.
+
+#### ``$sord``
+
+La etapa ``$sort`` ordena todos los documentos de entrada y los devuelve a la canalización en orden. Usamos 1 para representar el orden ascendente y -1 para representar el orden descendente.
+
+```JavaScript
+{
+    $sort: {
+        "field_name": 1
+    }
+}
+```
+
+#### ``$limit``
+
+La etapa ``$limit`` devuelve sólo un número especificado de registros.
+
+```JavaScript
+{
+  $limit: 5
+}
+```
+
+#### ``$sort`` y ``$limit`` en un proceso de agregación
+
+El siguiente proceso de agregación ordena los documentos en orden descendente, de modo que los documentos con el mayor valor ``pop`` aparecen primero, y limita la salida a sólo los cinco primeros documentos después de la ordenación.
+
+```JavaScript
+db.zips.aggregate([
+{
+  $sort: {
+    pop: -1
+  }
+},
+{
+  $limit:  5
+}
+])
+```
+
+### Lección 4: Uso de las etapas ``$project``, ``$count`` y ``$set`` en un proceso de agregación de MongoDB
+
+Revise las siguientes secciones, que muestran el código para las etapas de agregación ``$project``, ``$set`` y ``$count``.
+
+#### ``$project``
+
+La etapa ``$project`` especifica los campos de los documentos de salida. 1 significa que el campo debe incluirse, y 0 significa que el campo debe suprimirse. También se puede asignar un nuevo valor al campo.
+
+```JavaScript
+{
+    $project: {
+        state:1, 
+        zip:1,
+        population:"$pop",
+        _id:0
+    }
+}
+```
+
+#### ``$set``
+
+La etapa ``$set`` crea nuevos campos o cambia el valor de los campos existentes y, a continuación, genera los documentos con los nuevos campos.
+
+```JavaScript
+{
+    $set: {
+        place: {
+            $concat:["$city",",","$state"]
+        },
+        pop:10000
+    }
+}
+```
+
+#### ``$count``
+
+La etapa ``$count`` crea un nuevo documento, con el número de documentos en esa etapa en la tubería de agregación asignado al nombre de campo especificado.
+
+```JavaScript
+{
+  $count: "total_zips"
+}
+```
+
+### Lección 5: Uso de la etapa $out en un proceso de agregación de MongoDB
+
+#### $out
+
+Toma los documentos devueltos por la tubería de agregación y los escribe en una colección especificada.
+
+La etapa ``$out`` debe ser la última etapa de la canalización. El operador ``$out`` permite a la estructura de agregación devolver conjuntos de resultados de cualquier tamaño.
+
+**Advertencia**: ``$out`` sustituye a la colección especificada si existe.
+
+#### Sintaxis
+
+```JavaScript
+{ $out: { db: "<output-db>", coll: "<output-collection>" } }
+// ó
+{ $out: "<output-collection>" } // La colección de salida está en la misma base de datos
+```
+
+## Indexes (Índices)
+
+### Lección 1: Uso de índices MongoDB en colecciones
+
+- Los índices son estructuras de datos que mejoran el rendimiento, soportan coincidencias de igualdad eficientes y operaciones de consulta basadas en rangos, y pueden devolver resultados ordenados. Los índices consiguen esto permitiendo a MongoDB realizar solo el trabajo necesario para devolver los datos solicitados, en lugar de escanear toda la colección.
+
+- Los índices se utilizan para agilizar las consultas de los usuarios. Una de las formas más sencillas de mejorar el rendimiento de una consulta lenta es crear índices sobre los datos que se utilizan con más frecuencia.
+
+    Los índices ayudan a que las consultas sean más rápidas para los usuarios, ya que sólo escanean los índices para encontrar los datos solicitados.
+
+- Los índices mejoran el rendimiento de las consultas a costa del rendimiento de la escritura. Para la mayoría de los casos de uso, esta compensación es aceptable. Los índices deben utilizarse en datos que se consultan con frecuencia o en consultas poco frecuentes pero costosas en términos de recursos informáticos.
+
+- ``Índice de campo único``: Un índice de campo único es un índice sobre un único campo de un documento. MongoDB crea un índice de campo único en el campo ``_id`` de forma predeterminada, pero también pueden necesitarse índices adicionales para otros campos. Un índice de campo único también puede ser un índice multiclave si opera sobre un campo de matriz.
+
+- ``Índice compuesto:`` MongoDB admite índices compuestos, en los que una única estructura de índice contiene referencias a múltiples campos dentro de los documentos de una colección. Un índice compuesto se crea especificando los campos a los que debe hacer referencia el índice, seguidos del orden en que deben ordenarse los campos. El orden de los campos en el índice es importante porque determina el orden en que se devuelven los documentos al consultar la colección. Un índice compuesto también puede ser un índice multiclave si uno de los campos es una matriz.
+
+- ``Índice multiclave:`` Un índice multiclave es un índice sobre un campo de matriz. Cada elemento de la matriz recibe una clave de índice, lo que permite realizar consultas eficientes en los campos de la matriz. Tanto los índices de campo único como los compuestos pueden tener un campo de matriz, por lo que existen índices de campo único multiclave e índices compuestos multiclave.
+
+### Lección 2: Creación de un índice de campo único
+
+Revisa el siguiente código, que muestra cómo crear un índice de campo único en una colección.
+
+#### Crear un índice de campo único
+
+Utilice ``createIndex()`` para crear un nuevo índice en una colección. Dentro del paréntesis de ``createIndex()``, incluya un objeto que contenga el campo y el orden de clasificación.
+
+```JavaScript
+db.customers.createIndex({
+  birthdate: 1
+})
+```
+
+#### Crear un índice único de un solo campo
+
+Añada ``{unique:true}`` como segundo parámetro opcional en ``createIndex()`` para forzar la unicidad en los valores de campo del índice. Una vez creado el índice único, cualquier inserción o actualización que incluya valores duplicados en la colección para el/los campo/s del índice fallará.
+
+```JavaScript
+db.customers.createIndex({
+  email: 1
+},
+{
+  unique:true
+})
+```
+
+MongoDB sólo crea el índice único si no hay duplicación en los valores de campo para el/los campo/s del índice.
+
+#### Ver los índices utilizados en una colección
+
+Utilice ``getIndexes()`` para ver todos los índices creados en una colección.
+
+```JavaScript
+db.customers.getIndexes()
+```
+
+#### Comprobar si se está utilizando un índice en una consulta
+
+Utilice ``explain()`` en una colección cuando ejecute una consulta para ver el plan de ejecución. Este plan proporciona los detalles de las etapas de ejecución (IXSCAN , COLLSCAN, FETCH, SORT, etc.).
+
+- La etapa ``IXSCAN`` indica que la consulta utiliza un índice y qué índice se está seleccionando.
+- La etapa ``COLLSCAN`` indica que se está realizando un escaneo de colección, sin utilizar ningún índice.
+- La etapa ``FETCH`` indica que se están leyendo documentos de la colección.
+- La etapa ``SORT`` indica que los documentos se están ordenando en memoria.
+
+```JavaScript
+db.customers.explain().find({
+  birthdate: {
+    $gt:ISODate("1995-08-01")
+    }
+  })
+
+db.customers.explain().find({
+  birthdate: {
+    $gt:ISODate("1995-08-01")
+    }
+  }).sort({
+    email:1
+    })
+```
+
+### Lección 3: Comprender los índices multiclave
+
+Revise el siguiente código, que demuestra cómo funcionan los índices multiclave. Si un índice de campo único o compuesto incluye un campo de matriz, entonces el índice es un índice multiclave.
+
+#### Crear un Índice Multiclave de Campo Único
+
+Utilice ``createIndex()`` para crear un nuevo índice en una colección. Incluya un objeto como parámetro que contenga el campo de matriz y el orden de clasificación. En este ejemplo cuentas es un campo array.
+
+```JavaScript
+db.customers.createIndex({
+  accounts: 1
+})
+```
+
+#### Ver los índices utilizados en una colección
+
+Utilice ``getIndexes()`` para ver todos los índices creados en una colección.
+
+```JavaScript
+db.customers.getIndexes()
+```
+
+#### Comprobar si se está utilizando un índice en una consulta
+
+Utilice ``explain()`` en una colección cuando ejecute una consulta para ver el plan de ejecución. Este plan proporciona los detalles de las etapas de ejecución (IXSCAN , COLLSCAN, FETCH, SORT, etc.).
+
+- La etapa ``IXSCAN`` indica que la consulta utiliza un índice y qué índice se está seleccionando.
+- La etapa ``COLLSCAN`` indica que se está realizando un escaneo de colección, sin utilizar ningún índice.
+- La etapa ``FETCH`` indica que se están leyendo documentos de la colección.
+- La etapa ``SORT`` indica que los documentos se están ordenando en memoria.
+
+```JavaScript
+db.customers.explain().find({
+  accounts: 627788
+  })
+```
+
+### Lección 4: Trabajar con índices compuestos
+
+Revisa el siguiente código, que muestra cómo crear un índice compuesto en una colección.
+
+#### Crear un Índice Compuesto
+
+Utilice ``createIndex()`` para crear un nuevo índice en una colección. Dentro del paréntesis de ``createIndex()``, incluya un objeto que contenga dos o más campos y su orden de clasificación.
+
+```JavaScript
+db.customers.createIndex({
+  active:1, 
+  birthdate:-1,
+  name:1
+})
+```
+
+#### Orden de los campos en un índice compuesto
+
+El orden de los campos es importante a la hora de crear el índice y el orden de clasificación. Se recomienda listar los campos en el siguiente orden: Igualdad, Ordenar y Rango.
+
+- ``Equality (Igualdad)``: campo/s que coincide/n con un único valor de campo en una consulta
+- ``Sort (Ordenar)``: campo/s por el/los que se ordenan los resultados en una consulta
+- ``Range (Rango)``: campo/s que la consulta filtra en un rango de valores válidos
+
+La siguiente consulta incluye una coincidencia de igualdad en el campo ``active``, una ordenación por ``birthdate`` (descendente) y ``name`` (ascendente), y una consulta de rango también por ``birthdate``.
+
+```JavaScript
+db.customers.find({
+  birthdate: {
+    $gte:ISODate("1977-01-01")
+    },
+    active:true
+    }).sort({
+      birthdate:-1, 
+      name:1
+      })
+```
+
+He aquí un ejemplo de un índice eficiente para esta consulta:
+
+```JavaScript
+db.customers.createIndex({
+  active:1, 
+  birthdate:-1,
+  name:1
+})
+```
+
+#### Ver los índices utilizados en una colección
+
+Utilice ``getIndexes()`` para ver todos los índices creados en una colección.
+
+```JavaScript
+db.customers.getIndexes()
+```
+
+#### Comprobar si se está utilizando un índice en una consulta
+
+Utilice ``explain()`` en una colección cuando ejecute una consulta para ver el plan de ejecución. Este plan proporciona los detalles de las etapas de ejecución (IXSCAN , COLLSCAN, FETCH, SORT, etc.). Algunas de ellas son:
+
+- La etapa ``IXSCAN`` indica que la consulta está utilizando un índice y qué índice se está seleccionando.
+- La etapa ``COLLSCAN`` indica que se está realizando un escaneo de colección, sin utilizar ningún índice.
+- La etapa ``FETCH`` indica que se están leyendo documentos de la colección.
+- La etapa ``SORT`` indica que los documentos se están ordenando en memoria.
+
+```JavaScript
+db.customers.explain().find({
+  birthdate: {
+    $gte:ISODate("1977-01-01")
+    },
+  active:true
+  }).sort({
+    birthdate:-1,
+    name:1
+    })
+```
+
+#### Cubrir una consulta mediante el Índice
+
+Un índice cubre una consulta cuando MongoDB no necesita obtener los datos de la memoria puesto que todos los datos requeridos ya son devueltos por el índice.
+
+En la mayoría de los casos, podemos utilizar proyecciones para devolver sólo los campos necesarios y cubrir la consulta. Asegúrese de que los campos de la proyección están en el índice.
+
+Añadiendo la proyección ``{name:1,birthdate:1,_id:0}`` en la consulta anterior, podemos limitar los campos devueltos a sólo ``name`` y ``birthdate``. Estos campos forman parte del índice y cuando ejecutamos el comando ``explain()``, el plan de ejecución muestra sólo dos etapas:
+
+- ``IXSCAN`` - Escaneo del índice utilizando el índice compuesto
+- ``PROJECTION_COVERED`` - Toda la información necesaria es devuelta por el índice, no es necesario obtenerla de la memoria
+
+```JavaScript
+db.customers.explain().find({
+  birthdate: {
+    $gte:ISODate("1977-01-01")
+    },
+  active:true
+  },
+  {name:1,
+    birthdate:1, 
+    _id:0
+  }).sort({
+    birthdate:-1,
+    name:1
+    })
+```
+
+### Lección 5: Borrar un índice
+
+Revise el siguiente código, que demuestra cómo eliminar índices en una colección.
+
+#### Ver los Índices utilizados en una Colección
+
+Utilice ``getIndexes()`` para ver todos los índices creados en una colección. Siempre hay un índice por defecto en cada colección sobre el campo ``_id``. Este índice es utilizado internamente por MongoDB y no puede ser eliminado.
+
+```javascript
+db.customers.getIndexes()
+```
+
+#### Borrar un índice
+
+Utilice ``dropIndex()`` para eliminar un índice existente de una colección. Dentro del paréntesis de dropIndex(), incluya un objeto que represente la clave del índice o proporcione el nombre del índice como una cadena.
+
+Borrar índice por nombre:
+
+```javascript
+db.customers.dropIndex(
+  'active_1_birthdate_-1_name_1'
+)
+```
+
+Eliminar índice por clave:
+
+```javascript
+db.customers.dropIndex({
+  active:1,
+  birthdate:-1, 
+  name:1
+})
+```
+
+#### Borrar índices
+
+Utilice ``dropIndexes()`` para eliminar todos los índices de una colección, a excepción del índice por defecto sobre ``_id``.
+
+```javascript
+db.customers.dropIndexes()
+```
+
+El comando ``dropIndexes()`` también puede aceptar una matriz de nombres de índices como parámetro para eliminar una lista específica de índices.
+
+```javascript
+db.collection.dropIndexes([
+  'index1name', 'index2name', 'index3name'
+  ])
+```
 
 ## Comandos
 

@@ -1,9 +1,11 @@
 class Product {
-    constructor(name, price, description, stock) {
+    constructor(id, name, price, description, stock, units) {
+      this.id = id;
       this.name = name;
       this.price = price;
       this.description = description;
       this.stock = stock;
+      this.units = units;
     }
     get getInfo() {
       return {
@@ -42,6 +44,9 @@ class Product {
     }
     set setStock(newStock) {
       this.stock = newStock;
+    }
+    set setUnits(newUnit) {
+      this.units = newUnit;
     }
   }
   

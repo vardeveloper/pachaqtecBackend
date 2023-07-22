@@ -10,13 +10,13 @@ class PorductService {
   }
 
   crear(req, res) {
-    const { name, price, description, stock } = req.body;
-    const newProduct = new Product(name, price, description, stock);
+    const {id, name, price, description, stock } = req.body;
+    const newProduct = new Product(id, name, price, description, stock);
 
-    console.log(newProduct);
-    almacenService.agregarAlmacen(newProduct.getInfo);
+    //console.log(newProduct);
+    almacenService.agregarAlmacen(newProduct);
 
-    res.json(newProduct.getInfo);
+    res.json(newProduct);
   }
 }
 const productService = new PorductService();
