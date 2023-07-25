@@ -1,4 +1,6 @@
-# Resolver los siguientes ejercicios SQL
+# Hackathon 9 - 08/07/2023
+
+## Resolver los siguientes ejercicios SQL
 
 1. Muestra todos los registros de una tabla llamada "clientes".
 2. Selecciona el nombre y el apellido de todos los clientes cuyo país sea "España".

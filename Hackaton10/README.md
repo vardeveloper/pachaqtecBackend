@@ -1,4 +1,6 @@
-# Resolver los siguientes ejercicios con MongoDB
+# Hackathon 10 - 15/07/2023
+
+## Resolver los siguientes ejercicios con MongoDB
 
 1. Insertar un documento en una colección llamada "usuarios".
 2. Insertar varios documentos en la colección "usuarios".
