@@ -1,4 +1,6 @@
-# Resolver los siguientes ejercicios de funciones, procedimientos almacenados y triggers en Postgres
+# Hackathon 11 - 22/07/2023
+
+## Resolver los siguientes ejercicios de funciones, procedimientos almacenados y triggers en Postgres
 
 1. Función para sumar dos números enteros.
 2. Función para calcular el área de un círculo.
