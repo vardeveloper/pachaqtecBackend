@@ -1,0 +1,32 @@
+POST http://localhost:3001/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "edad": 30,
+    "email": "juan2@example.com"
+}
+
+###
+
+PATCH http://localhost:3001/api/usuarios/64c1a899a0c8a55f0ff7336d HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Pedro Navea",
+    "edad": 33,
+    "email": "pedro@example.com"
+}
+
+###
+
+GET http://localhost:3001/api/usuarios HTTP/1.1
+
+###
+
+DELETE http://localhost:3001/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": "64c1d293f8b9414cf4c71045"
+}
