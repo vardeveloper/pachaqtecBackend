@@ -11,7 +11,7 @@ const getItem = async (req, res) => {
         res.send(data);
     } catch (e) {
         console.error(e);
-        res.send(e);
+        res.send("Error: ", e);
     }
 }
 
@@ -21,7 +21,7 @@ const getItems = async (req, res) => {
         res.send(data);
     } catch (e) {
         console.error(e);
-        res.send(e);
+        res.send("Error: ", e);
     }
 }
 
@@ -39,7 +39,7 @@ const createItem = (req, res) => {
         })
         .catch(e => {
             console.error(e);
-            res.send(e);
+            res.send("Error: ", e);
         })
 }
 
@@ -60,7 +60,7 @@ const deleteItem = (req, res) => {
         })
         .catch(e => {
             console.error(e);
-            res.send(e);
+            res.send("Error: ", e);
         })
 }
 

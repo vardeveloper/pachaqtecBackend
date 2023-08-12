@@ -6,6 +6,6 @@ const usuarioSchema = new mongoose.Schema({
     email: { type: String, require: true, unique: true }
 });
 
-const Usuario = mongoose.model("users", usuarioSchema);
+const Usuario = mongoose.model("usuarios", usuarioSchema);
 
 module.exports = Usuario;

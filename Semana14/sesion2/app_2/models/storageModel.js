@@ -13,4 +13,4 @@ const StorageSchema = new mongoose.Schema(
         timestamps: true,
     }
 )
-module.exports = mongoose.model("storages", StorageSchema)
+module.exports = mongoose.model("storage", StorageSchema)

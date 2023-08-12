@@ -14,8 +14,8 @@ app.use(express.static("storage"));
 app.use(loggerMiddleware);
 
 app.use('/api/usuarios', usersRouter);
-app.use('/api/storage', storageRoter);
-app.use('/api/productos', productsRoter);
+app.use('/api/storage', storageRoter); 
+app.use('/api/productos', productsRoter); 
 
 const port = process.env.PORT || "3001";
 
