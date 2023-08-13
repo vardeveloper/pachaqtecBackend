@@ -19,7 +19,7 @@ const findAll = async (req = request, res = response) => {
         path: "categories",
         model: "Category",
         populate: "parentCategory",
-    });
+    }).limit(1).skip(3).sort({ name: 1 });
 
     res.json(products);
 };

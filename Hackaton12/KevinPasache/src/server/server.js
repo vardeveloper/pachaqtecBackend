@@ -1,49 +1,56 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const categoryRoutes = require("../modules/categories/routes/category.route");
-const productRoutes = require("../modules/product/routes/product.route")
+const path = require("path");
+const categoryRoutes = require("../modules/categories/routes");
+const ProductRoutes = require("../modules/product/routes/");
+const UserRoutes = require("../modules/user/routes")
 
 class Server {
-    constructor() {
-        this.app = express();
-        this.port = 4000;
-        this.originPath = "/api";
-        this.categoryPath = "/category";
-        this.productPath = "/product";
+  constructor() {
+    this.app = express();
+    this.port = 4001;
+    this.originPath = "/api";
+    this.categoryPath = "/category";
+    this.productPath = "/product";
+    this.userPath = "/user";
+
+    //middleare
+
+    this.middleware();
+
+    //conection db
+    this.connectionDb();
+
+    // rutas
+
+    this.routes();
+  }
+
+  async connectionDb() {
+    await mongoose.connect("mongodb://127.0.0.1:27017/idat");
+  }
+  middleware() {
 
 
-        this.middleare();
+    this.app.use(express.static(path.join(__dirname, "../public")));
+ 
 
-        this.connectionDB();
+    //parse and reading of body
+    this.app.use(express.json());
+  }
 
-        this.routes();
-    }
+  routes() {
+    this.app.use(this.originPath + this.categoryPath, categoryRoutes);
+    this.app.use(this.originPath + this.productPath, ProductRoutes);
+    this.app.use(this.originPath + this.userPath, UserRoutes);
+    
+  }
 
-    async connectionDB() {
-        await mongoose.connect('mongodb://127.0.0.1:27017/idat');
-    }
-
-    middleare() {
-        this.app.use(express.json());
-    
-    }
-    
-    routes() {
-        this.app.use(this.originPath + this.categoryPath, categoryRoutes);
-        this.app.use(this.originPath + this.productPath, categoryRoutes);
-    
-    }
-    
-    listen() {
-        this.app.listen(this.port, () => {
-    
-          console.log(`Server escuchando en el puerto ${this.port} 🚀🚀`);
-    
-        });
-    
-    }
-    
+  listen() {
+    this.app.listen(this.port, () => {
+      console.log(`Server escuchando en puerto ${this.port} 🚀🚀`);
+    });
+  }
 }
-  
-    
+
 module.exports = Server;
