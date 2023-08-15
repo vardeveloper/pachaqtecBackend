@@ -1,0 +1,200 @@
+1. Función para sumar dos números enteros.
+
+CREATE OR REPLACE FUNCTION  sumar_enteros(primero_numero integer,segundo_numero integer)
+RETURNS integer AS
+$$
+DECLARE 
+    resultado  integer;
+BEGIN
+    resultado := primero_numero + segundo_numero;
+
+    RETURN resultado;
+
+END;
+$$
+LANGUAGE plpgsql;
+
+2. Función para calcular el área de un círculo.
+
+CREATE OR REPLACE FUNCTION calcular_area_circulo(radio NUMERIC)
+RETURNS NUMERIC AS $$
+BEGIN
+  RETURN PI() * radio * radio;
+END;
+$$
+LANGUAGE plpgsql;
+
+3. Función para verificar si un número es primo.
+
+CREATE OR REPLACE FUNCTION es_primo(numero integer) RETURNS boolean AS
+$$
+DECLARE
+    divisor integer := 2;
+    limite integer := FLOOR(SQRT(numero));
+BEGIN
+    IF numero <= 1 THEN
+        RETURN false;
+    END IF;
+
+    WHILE divisor <= limite LOOP
+        IF numero % divisor = 0 THEN
+            RETURN false;
+        END IF;
+        divisor := divisor + 1;
+    END LOOP;
+
+    RETURN true;
+END;
+$$
+LANGUAGE plpgsql;
+
+4. Procedimiento para insertar un nuevo empleado en la tabla "empleados".
+
+CREATE OR REPLACE PROCEDURE insertar_empleado(
+    i_id INT,
+    i_nombre VARCHAR(50),
+    i_apellido VARCHAR(50),
+    i_salario DECIMAL,
+    i_departamento VARCHAR(50),
+    i_fecha_nacimiento DATE
+)
+AS
+$$
+BEGIN
+    INSERT INTO empleados (id, nombre, apellido, salario, departamento, fecha_nacimiento)
+    VALUES (i_id, i_nombre, i_apellido, i_salario, i_departamento, i_fecha_nacimiento);
+    
+    RAISE NOTICE 'Empleado insertado correctamente';
+END;
+$$
+LANGUAGE plpgsql;
+
+5. Procedimiento para actualizar el salario de un empleado en la tabla "empleados" por ID.
+
+CREATE OR REPLACE PROCEDURE actualizar_salario_empleado(
+    i_id INT,
+    i_nuevo_salario DECIMAL
+)
+AS
+$$
+BEGIN
+    UPDATE empleados
+    SET salario = i_nuevo_salario
+    WHERE id = i_id;
+
+    IF FOUND THEN
+        RAISE NOTICE 'Salario actualizado correctamente para el empleado con ID %', i_id;
+    ELSE
+        RAISE EXCEPTION 'No se encontró ningún empleado con el ID proporcionado';
+    END IF;
+END;
+$$
+LANGUAGE plpgsql;
+
+6. Procedimiento para eliminar un empleado de la tabla "empleados" por ID.
+
+CREATE OR REPLACE PROCEDURE eliminar_empleado_por_id(
+    e_id INT
+)
+AS
+$$
+BEGIN
+    DELETE FROM empleados
+    WHERE id = e_id;
+
+    IF FOUND THEN
+        RAISE NOTICE 'Empleado con ID % eliminado correctamente', e_id;
+    ELSE
+        RAISE EXCEPTION 'No se encontró ningún empleado con el ID proporcionado';
+    END IF;
+END;
+$$
+LANGUAGE plpgsql;
+
+7. Trigger para registrar la fecha de inserción de un nuevo empleado en la tabla "empleados".
+
+ALTER TABLE empleados
+ADD COLUMN fecha_insercion TIMESTAMP;
+
+CREATE OR REPLACE FUNCTION registrar_fecha_insercion()
+RETURNS TRIGGER AS
+$$
+BEGIN
+    NEW.fecha_insercion := NOW();
+    RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_registrar_fecha_insercion
+BEFORE INSERT ON empleados
+FOR EACH ROW
+EXECUTE FUNCTION registrar_fecha_insercion();
+
+INSERT INTO empleados (nombre, apellido, salario, departamento, fecha_nacimiento)
+VALUES ('');
+
+8. Trigger para actualizar automáticamente el salario de un empleado después de una actualización en la tabla "empleados".
+
+9. Trigger para evitar la eliminación de empleados con más de 5 años de antigüedad.
+
+CREATE OR REPLACE FUNCTION verificar_antiguedad()
+RETURNS TRIGGER AS
+$$
+DECLARE
+    fecha_actual DATE;
+BEGIN
+    fecha_actual := CURRENT_DATE;
+
+    IF OLD.fecha_insercion + INTERVAL '5 years' <= fecha_actual THEN
+        RAISE EXCEPTION 'No se puede eliminar el empleado con ID % debido a su antigüedad de más de 5 años', OLD.id;
+    END IF;
+
+    RETURN OLD;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER trigger_verificar_antiguedad
+BEFORE DELETE ON empleados
+FOR EACH ROW
+EXECUTE FUNCTION verificar_antiguedad();
+
+10. Función para calcular el promedio de los salarios de todos los empleados.
+
+CREATE OR REPLACE FUNCTION calcular_promedio_salarios()
+RETURNS DECIMAL AS
+$$
+DECLARE
+    promedio DECIMAL;
+BEGIN
+    SELECT AVG(salario) INTO promedio
+    FROM empleados;
+
+    RETURN promedio;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT calcular_promedio_salarios();
+
+11. Función para obtener el nombre completo de un empleado concatenando nombre y apellido.
+
+CREATE OR REPLACE FUNCTION obtener_nombre_completo_empleado(o_id INT)
+RETURNS VARCHAR(100) AS
+$$
+DECLARE
+    nombre_completo VARCHAR(100);
+BEGIN
+    SELECT CONCAT(nombre, ' ', apellido) INTO nombre_completo
+    FROM empleados
+    WHERE id = o_id;
+
+    RETURN nombre_completo;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT obtener_nombre_completo_empleado(1);
+
+12. Procedimiento para asignar un nuevo jefe a un departamento y actualizar los empleados afectados.
