@@ -7,7 +7,7 @@
 
 ## Consideraciones
 
-- Crear projecto con la resolución del ejercicio.
+- Crear proyecto con la resolución del ejercicio.
 - Desde la rama "dev" en el directorio "Hackaton12" crear una carpeta con su nombre "NombreApellido" sin espacios y en ello agregar su tarea.
 - La actividad es individual, todos sin excepción deben subir su carpeta personal.
 - Al generar su pull request la descripción del commit debe ser "Nombre Apellido - Hackaton12"
