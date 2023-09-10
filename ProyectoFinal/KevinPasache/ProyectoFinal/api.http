@@ -1,0 +1,31 @@
+### Recuperar todos los lotes
+GET http://localhost:1234/lotes
+
+### Recuperar lotes por id
+GET http://localhost:1234/lotes/1
+
+### Recuperar todos los lotes filtrados por un parametro
+GET http://localhost:1234/lotes?tamaño=90mt2
+
+### Agregar un nuevo lote
+POST http://localhost:1234/lotes
+content-type: application/json
+
+{
+  "descripcion": "Via Secundaria",
+  "ubicacion": "A04",
+  "precio": "$14500",
+  "tamaño": "90mt2",
+  "estado": "disponible"
+}
+
+### Actualizar solo una parte de un lote
+PATCH http://localhost:1234/lotes/1
+content-type: application/json
+
+{
+  "estado": "vendido"
+}
+
+### Eliminar un lote
+DELETE http://localhost:1234/lotes/1
